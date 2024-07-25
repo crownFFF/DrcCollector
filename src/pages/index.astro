@@ -1,16 +1,481 @@
 ---
-
+import "/src/style/style.css";
 ---
 
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+		/>
+		<meta name="description" content="郵票，郵封，首日封，實寄封，其他郵封" />
+		<link rel="icon" href="/src/images/stamp.png" />
+		<link rel="apple-touch-icon" href="/src/images/stamp.png" />
+		<!-- <script is:inline src="https://code.jquery.com/jquery-3.7.0.min.js"></script> -->
+
+		<title>DRC收藏家 | 郵票郵封</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="indexPage">
+		<!-- loading動畫 -->
+		<section class="loadingArea">
+			<div class="loadingName">
+				<span>DRC</span>
+				<span>Collector</span>
+			</div>
+			<span class="loadingLine">LOADING</span>
+		</section>
+
+		<header>
+			<div class="logo">
+				<i>DRC</i>
+			</div>
+
+			<div class="navigation__gap"></div>
+
+			<div class="navigation">
+				<div class="navigation__primary">
+					<ul>
+						<li>
+							<h3>關於我們</h3>
+							<div class="navigationItem">
+								<a href="">建立-故事</a>
+								<a href="">關於網站</a>
+							</div>
+						</li>
+						<li>
+							<h3>參展郵集介紹</h3>
+							<div class="navigationItem">
+								<a href="">郵集-介紹</a>
+								<a href="">郵集-故事</a>
+								<a href="">郵集-展示</a>
+							</div>
+						</li>
+						<li>
+							<h3>展品介紹</h3>
+							<div class="navigationItem">
+								<a href="">首日封</a>
+								<a href="">實寄封</a>
+								<a href="">其他郵封</a>
+								<a href="">郵票</a>
+								<a href="">明信片</a>
+								<a href="">郵簡</a>
+							</div>
+						</li>
+						<li>
+							<h3>線上商店</h3>
+							<div class="navigationItem">
+								<a href="">Shopee</a>
+								<a href="">Ebay</a>
+								<a href="">Yahoo</a>
+							</div>
+						</li>
+						<li>
+							<h3>聯絡我們</h3>
+							<div class="navigationItem">
+								<a href="">E-mail</a>
+								<a href="">線上留言</a>
+							</div>
+						</li>
+						<li class="searchIcon">
+							<h3>
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</h3>
+						</li>
+						<li>
+							<h3>
+								<i class="fa-solid fa-language"></i>
+							</h3>
+						</li>
+					</ul>
+				</div>
+
+				<form action="" class="search">
+					<input type="text" class="searchInput" />
+					<button type="submit" class="searchSubmit">送出</button>
+				</form>
+			</div>
+
+			<div class="mobileNavigation">
+				<a class="mobilemain">
+					<span></span>
+				</a>
+			</div>
+
+			<section class="mobilemenu">
+				<div class="bgbox">
+					<img src="/src/images/stamp013-1.png" alt="" draggable="false" />
+				</div>
+				<a class="closeBox">
+					<span></span>
+				</a>
+				<div class="menucontent">
+					<ul>
+						<form action="" class="menuSearch">
+							<input type="text" class="menuSearchInput" />
+							<button type="submit">送出 </button>
+						</form>
+						<li class="menuitem">
+							<h3>關於我們</h3>
+							<div class="menulist">
+								<a href="">建立-故事</a>
+								<a href="">關於網站</a>
+							</div>
+						</li>
+						<li class="menuitem">
+							<h3>參展郵集介紹</h3>
+							<div class="menulist">
+								<a href="">郵集-介紹</a>
+								<a href="">郵集-故事</a>
+								<a href="">郵集-展示</a>
+							</div>
+						</li>
+						<li class="menuitem">
+							<h3>展品介紹</h3>
+							<div class="menulist">
+								<a href="">首日封</a>
+								<a href="">實寄封</a>
+								<a href="">其他郵封</a>
+								<a href="">郵票</a>
+								<a href="">明信片</a>
+								<a href="">郵簡</a>
+							</div>
+						</li>
+						<li class="menuitem">
+							<h3>線上商店</h3>
+							<div class="menulist">
+								<a href="">Shopee</a>
+								<a href="">Ebay</a>
+								<a href="">Yahoo</a>
+							</div>
+						</li>
+						<li class="menuitem">
+							<h3>聯絡我們</h3>
+							<div class="menulist">
+								<a href="">E-mail</a>
+								<a href="">線上留言</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</header>
+
+		<main>
+			<section class="bannerArea">
+				<div class="bannerBG">
+					<img src="/src/images/stamp001-1.jpg" alt="" draggable="false" />
+				</div>
+
+				<div class="bannerTex" data-rs>
+					<h1 class="texTitle">
+						<span>DRC收藏家</span>
+					</h1>
+					<h2 class="texSubtitle">
+						<span>
+							「用信封收藏，捕捉郵政歷史的精彩瞬間和文化演變，讓每封信封成為時光的見證者。」
+						</span>
+					</h2>
+				</div>
+
+				<!-- <a href="#introduceArea" class="bannerScroll">
+					Scroll
+				</a> -->
+			</section>
+
+			<section class="introduceArea">
+				<div class="titleTex" data-rs>
+					<h2 class="titleHead">
+						<span>介紹</span>
+					</h2>
+					<h3 class="titleBody">
+						<span>introduce</span>
+					</h3>
+					<h4 class="titleCentent">
+						<p>
+							透過這些小小的紙片，我們能夠窺探世界的多樣風情，感受人類智慧與創造力的奇蹟。
+							<br
+							/>探索我們的信封收藏網站，這裡匯聚了所有熱愛郵政藝術和文化探索的愛好者。我們以信封為藍本，展示和探索著郵政歷史的深遠魅力。<br
+							/>每一封信封都是一幅獨特的藝術品，承載著時代的印記和文化的精髓。<br
+							/>在這個充滿文學和藝術氛圍的平台上，您將發現首日封的詩意韻味、郵政史信封的故事性深度，以及航空郵件信封所帶來的空中漫遊之感。我們通過精緻的圖像展示和詳盡的歷史背景介紹，帶您走進一個個富有詩意的郵政時光隧道。<br
+							/>無論您是追求藝術美感還是愛好歷史故事，我們的網站都致力於為您提供深入的文化體驗和啟發。
+						</p>
+					</h4>
+				</div>
+				<div class="introduceImg">
+					<img src="/src/images/stamp013-1.png" alt="" draggable="false" />
+				</div>
+			</section>
+
+			<section class="aboutArea">
+				<div class="titleTex" data-rs>
+					<h2 class="titleHead">
+						<span>關於我們</span>
+					</h2>
+					<h3 class="titleBody">
+						<span>about us</span>
+					</h3>
+				</div>
+				<li class="aboutLi">
+					<div class="titleTex beforeNone">
+						<h4 class="titleCentent" data-rs>
+							<span
+								>這裡是一位酷愛集郵的老教授。集郵人生的收藏天地。<br />
+								用另一個角度看世界，或許發現嶄新創見~~<br /><br />
+								航天集郵的因緣：<br />
+								我從小集郵·而收集航天郵集的開始時間是在1980年初，當時正在美國南加州大學攻讀博士學位，那一年美國太空總署發射了第一艘太空梭，同時我的論文指導老師宴德福教授幫美國政府分析，從阿波羅計畫攜帶回來的月球岩石中的碳氫化合物成分。每當我在實驗室中面對那一顆顆黑色的小岩石時，都會覺得人類要把它們從遙遠的月球，帶回地球是那么的不容易，也是許多科學家和工程師多年來努力的結果。從那時開始,透過洛杉磯當地的新聞媒體(如電視新聞和學校圖書館的報章雜誌)了解到了美國和俄羅斯發展太空火箭和太空船的歷史與過程，也開啟我的航天集郵生涯。<br
+								/><br />
+								張有義
+							</span>
+						</h4>
+						<a href="" class="aboutMore">了解更多</a>
+					</div>
+					<div class="aboutImg">
+						<img src="/src/images/stamp001-2.jpg" alt="" />
+					</div>
+				</li>
+				<li class="aboutLi">
+					<div class="aboutImg2">
+						<img src="/src/images/stamp002-1.jpg" alt="" />
+					</div>
+				</li>
+				<div class="aboutBg"></div>
+			</section>
+
+			<section class="severArea">
+				<div class="titleTex" data-rs>
+					<h2 class="titleHead">
+						<span>展覽介紹</span>
+					</h2>
+					<h3 class="titleBody">
+						<span>Exhibition</span>
+					</h3>
+				</div>
+				<div class="serveBg"></div>
+				<div class="serveCarousel">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<a href="#">
+									<div class="swiperImg">
+										<img src="/src/images/stamp001-1.jpg" alt="" />
+									</div>
+									<div class="swiperCentent">
+										<span class="swiperTitle"> 郵票 </span>
+										<span class="swiperTitleEn"> stamp </span>
+										<span class="swiperArticle">
+											郵封的 歷史：從手工製作到現代生產
+										</span>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<div class="swiperImg">
+										<img src="/src/images/stamp001-1.jpg" alt="" />
+									</div>
+									<div class="swiperCentent">
+										<span class="swiperTitle"> 郵票 </span>
+										<span class="swiperTitleEn"> stamp </span>
+										<span class="swiperArticle">
+											郵封的 歷史：從手工製作到現代生產
+										</span>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<div class="swiperImg">
+										<img src="/src/images/stamp001-1.jpg" alt="" />
+									</div>
+									<div class="swiperCentent">
+										<span class="swiperTitle"> 郵票 </span>
+										<span class="swiperTitleEn"> stamp </span>
+										<span class="swiperArticle">
+											郵封的 歷史：從手工製作到現代生產
+										</span>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<div class="swiperImg">
+										<img src="/src/images/stamp001-1.jpg" alt="" />
+									</div>
+									<div class="swiperCentent">
+										<span class="swiperTitle"> 郵票 </span>
+										<span class="swiperTitleEn"> stamp </span>
+										<span class="swiperArticle">
+											郵封的 歷史：從手工製作到現代生產
+										</span>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<div class="swiperImg">
+										<img src="/src/images/stamp001-1.jpg" alt="" />
+									</div>
+									<div class="swiperCentent">
+										<span class="swiperTitle"> 郵票 </span>
+										<span class="swiperTitleEn"> stamp </span>
+										<span class="swiperArticle">
+											郵封的 歷史：從手工製作到現代生產
+										</span>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<div class="swiperImg">
+										<img src="/src/images/stamp001-1.jpg" alt="" />
+									</div>
+									<div class="swiperCentent">
+										<span class="swiperTitle"> 郵票 </span>
+										<span class="swiperTitleEn"> stamp </span>
+										<span class="swiperArticle">
+											郵封的 歷史：從手工製作到現代生產
+										</span>
+									</div>
+								</a>
+							</div>
+							<div class="swiper-slide">
+								<a href="#">
+									<div class="swiperImg">
+										<img src="/src/images/stamp001-1.jpg" alt="" />
+									</div>
+									<div class="swiperCentent">
+										<span class="swiperTitle"> 郵票 </span>
+										<span class="swiperTitleEn"> stamp </span>
+										<span class="swiperArticle">
+											郵封的 歷史：從手工製作到現代生產
+										</span>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="articleArea">
+				<div class="titleTex">
+					<h2 class="titleHead">
+						<span>文章</span>
+					</h2>
+
+					<h3 class="titleBody">
+						<span>article</span>
+					</h3>
+				</div>
+
+				<div class="articleContent">
+					<div class="articleImg">
+						<img src="/src/images/stamp004-2.jpg" alt="" />
+					</div>
+
+					<div class="articleInfo">
+						<ul class="articleList">
+							<li class="articleBox">
+								<div class="articleDate">2024.07.22</div>
+								<h3 class="articleTex">
+									<a href="#">郵封的歷史：從手工製作到現代生產</a>
+								</h3>
+							</li>
+							<li class="articleBox">
+								<div class="articleDate">2024.07.22</div>
+								<h3 class="articleTex">
+									<a href="#">郵封設計的藝術：從簡單到華麗</a>
+								</h3>
+							</li>
+							<li class="articleBox">
+								<div class="articleDate">2024.07.22</div>
+								<h3 class="articleTex"><a href="#">郵封的功能與用途</a></h3>
+							</li>
+							<li class="articleBox">
+								<div class="articleDate">2024.07.22</div>
+								<h3 class="articleTex">
+									<a href="#">環保郵封：可持續發展的選擇</a>
+								</h3>
+							</li>
+							<li class="articleBox">
+								<div class="articleDate">2024.07.22</div>
+								<h3 class="articleTex">
+									<a href="#">電子郵件時代的郵封：是否還有市場？</a>
+								</h3>
+							</li>
+							<li class="articleBox">
+								<div class="articleDate">2024.07.22</div>
+								<h3 class="articleTex">
+									<a href="#">自製創意郵封：DIY指南</a>
+								</h3>
+							</li>
+						</ul>
+						<a href="" class="articleMore">了解更多</a>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<footer>
+			<div class="footerContent">
+				<div class="footerLeft">
+					<ul class="footerList">
+						<li class="footerItem">
+							<h3 class="itemTitle">關於我們</h3>
+							<div class="itemlist">
+								<a href="">建立-故事</a>
+								<a href="">關於網站</a>
+							</div>
+						</li>
+						<li class="footerItem">
+							<h3 class="itemTitle">參展郵集介紹</h3>
+							<div class="itemlist">
+								<a href="">郵集-介紹</a>
+								<a href="">郵集-故事</a>
+								<a href="">郵集-展示</a>
+							</div>
+						</li>
+						<li class="footerItem">
+							<h3 class="itemTitle">展品介紹</h3>
+							<div class="itemlist">
+								<a href="">首日封</a>
+								<a href="">實寄封</a>
+								<a href="">其他郵封</a>
+								<a href="">郵票</a>
+								<a href="">明信片</a>
+								<a href="">郵簡</a>
+							</div>
+						</li>
+						<li class="footerItem">
+							<h3 class="itemTitle">線上商店</h3>
+							<div class="itemlist">
+								<a href="">Shopee</a>
+								<a href="">Ebay</a>
+								<a href="">Yahoo</a>
+							</div>
+						</li>
+						<li class="footerItem">
+							<h3 class="itemTitle">聯絡我們</h3>
+							<div class="itemlist">
+								<a href="">E-mail</a>
+								<a href="">線上留言</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="footerRight">DRC</div>
+			</div>
+			<div class="footerBottom">
+				<div class="copyright">
+					Copyright © DRC收藏家. All Rights Reserved.
+				</div>
+			</div>
+		</footer>
+
+		<script src="/src/scripts/main.js"></script>
+
 	</body>
+	
 </html>
