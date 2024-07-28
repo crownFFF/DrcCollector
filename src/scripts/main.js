@@ -1,23 +1,24 @@
 import Swiper from 'swiper'
 import ScrollReveal from 'scrollreveal'
-import $ from 'jquery';
-import 'slick-carousel';
+import $ from 'jquery'
+import 'slick-carousel'
+
 
 // loading動畫
-const data = sessionStorage.getItem("loading");
+const data = sessionStorage.getItem("loading")
 if (data == "ok") {
-  $(".loadingArea").remove();
+  $(".loadingArea").remove()
 }
 $(function () {
-  const data = sessionStorage.getItem("loading");
+  const data = sessionStorage.getItem("loading")
   if (data != "ok") {
-    $(".loadingArea").addClass("show");
+    $(".loadingArea").addClass("show")
     setTimeout(() => {
-      $(".loadingArea").remove();
-      sessionStorage.setItem("loading", "ok");
-    }, 5000);
+      $(".loadingArea").remove()
+      sessionStorage.setItem("loading", "ok")
+    }, 5000)
   }
-});
+})
 
 
 // Swiper
@@ -27,7 +28,7 @@ const swiper = new Swiper('.swiper-container', {
   centeredSlides: true,
   loop: true,
   autoplay: true
-});
+})
 
 // slick
 $('.articleList').slick({
@@ -40,31 +41,31 @@ $('.articleList').slick({
   autoplaySpeed: 3000,
   infinite: true,
   arrows: false
-});
+})
 
 // 點擊事件
-$('.mobilemain').on('click',() => {
+$('.mobilemain').on('click', () => {
   $('.mobilemenu').fadeIn(100).addClass('show')
   $('.mobilemenu').css('display', 'block')
   $('body').css('overflow', 'hidden')
-  return false;
+  return false
 })
 
-$('.closeBox').on('click',() => {
+$('.closeBox').on('click', () => {
   $('.mobilemenu').fadeOut().removeClass('show')
   $('body').css('overflow', 'auto')
-  return false;
+  return false
 })
 
-$('.searchIcon').on('click',() => {
+$('.searchIcon').on('click', () => {
   $('.search').css('height', '40px')
-  $('.searchInput').trigger( "focus" )
-  return false;
+  $('.searchInput').trigger("focus")
+  return false
 })
 
-$('.searchInput').on('blur',() => {
+$('.searchInput').on('blur', () => {
   $('.search').css('height', '0')
-  return false;
+  return false
 })
 
 // ScrollReveal
@@ -114,4 +115,11 @@ document.addEventListener('DOMContentLoaded', function () {
     delay: 700,
     duration: 600,
   })
-});
+})
+
+// import { createApp } from 'vue'
+// import App from '../pages/about.vue'
+// import router from '../routers/index'
+// const app = createApp(App)
+// app.use(router)
+// app.mount('#about')

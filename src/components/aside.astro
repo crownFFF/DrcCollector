@@ -1,0 +1,12 @@
+---
+const { asideTitle } = Astro.props;
+---
+
+<aside>
+  <div class="aboutAside">
+    <ul class="asideList">
+      <h3>{asideTitle}</h3>
+      <slot/>
+    </ul>
+  </div>
+</aside>

@@ -1,1 +1,142 @@
-/*# sourceMappingURL=about.css.map */
+main .innerBannerArea {
+  position: relative;
+}
+main .innerBannerArea .innerBanner {
+  display: flex;
+  justify-content: center;
+  background-color: #8f8f8f;
+  overflow: hidden;
+}
+main .innerBannerArea .innerBanner img {
+  margin-top: -150px;
+  width: 1260px;
+}
+main .innerBannerArea .BannerTitle {
+  width: 300px;
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 20px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 140px);
+  color: aliceblue;
+  transition: 0.5s;
+  cursor: default;
+}
+main .innerBannerArea .BannerTitle:hover {
+  color: #8b8b8b;
+}
+main .innerBannerArea .BannerSubTitle {
+  font-size: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 500px;
+  background-color: #fff;
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+  cursor: default;
+}
+main .innerBannerArea .BannerSubTitle a {
+  color: #411800;
+}
+main .aboutContentArea {
+  width: 1260px;
+  margin: auto;
+  padding: 50px 0 50px;
+  display: flex;
+}
+main .aboutContentArea .aboutAside {
+  position: sticky;
+  width: 150px;
+  background-color: #4d4d4d;
+  padding: 10px;
+  top: 200px;
+  letter-spacing: 2px;
+  margin-left: 50px;
+}
+main .aboutContentArea .aboutAside .asideList h3 {
+  font-size: 24px;
+  border-bottom: 1px solid #838383;
+  padding: 10px;
+  color: #b8a498;
+  cursor: default;
+}
+main .aboutContentArea .aboutAside .asideList .asideItem {
+  padding: 10px;
+  line-height: 50px;
+  font-size: 18px;
+  border-bottom: 1px solid #838383;
+}
+main .aboutContentArea .aboutAside .asideList .asideItem a {
+  color: #fff;
+}
+main .aboutContentArea .aboutContent {
+  margin-left: 50px;
+  width: calc(100% - 150px);
+}
+main .aboutContentArea .aboutContent .contentTitle {
+  font-size: 32px;
+  letter-spacing: 3px;
+  padding: 10px 0 20px;
+  border-bottom: 1px solid #4d4d4d;
+}
+main .aboutContentArea .aboutContent .contentArticle {
+  padding: 10px 20px;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 1260px) {
+  main .aboutContentArea {
+    width: 90%;
+  }
+  main .aboutContentArea .aboutAside {
+    margin-left: 0;
+  }
+}
+@media (max-width: 1024px) {
+  main .aboutContentArea {
+    width: 95%;
+  }
+  main .aboutContentArea .aboutAside {
+    width: 100px;
+  }
+  main .aboutContentArea .aboutAside .asideList h3 {
+    font-size: 18px;
+  }
+  main .aboutContentArea .aboutAside .asideList .asideItem {
+    font-size: 16px;
+  }
+  main .aboutContentArea .aboutContent {
+    margin-left: 20px;
+  }
+  main .aboutContentArea .aboutContent .contentArticle {
+    font-size: 16px;
+  }
+}
+@media (max-width: 500px) {
+  main .innerBannerArea .BannerSubTitle {
+    position: relative;
+    width: 100%;
+    font-size: 24px;
+  }
+  main .aboutContentArea {
+    flex-direction: column;
+    padding: 20px 0 20px;
+  }
+  main .aboutContentArea .aboutAside {
+    width: 80%;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    top: 0;
+  }
+  main .aboutContentArea .aboutAside .asideList .asideItem {
+    line-height: 20px;
+  }
+  main .aboutContentArea .aboutContent {
+    width: 95%;
+  }
+}/*# sourceMappingURL=about.css.map */

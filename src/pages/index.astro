@@ -1,12 +1,21 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Sever from "../components/sever.vue";
+import Article from "../components/article.vue";
+import Loading from "../components/loading.astro";
 ---
-<BaseLayout pagetitle="首頁">
 
+<BaseLayout pagetitle="首頁" bodyClass="indexPage">
+			<!-- loading動畫 -->
+			<Loading client:load />
 	<main>
 		<section class="bannerArea">
 			<div class="bannerBG">
-				<img src="../../public/images/stamp001-1.jpg" alt="" draggable="false" />
+				<img
+					src="../../public/images/stamp001-1.jpg"
+					alt=""
+					draggable="false"
+				/>
 			</div>
 
 			<div class="bannerTex" data-rs>
@@ -19,10 +28,6 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 					</span>
 				</h2>
 			</div>
-
-			<!-- <a href="#introduceArea" class="bannerScroll">
-				Scroll
-			</a> -->
 		</section>
 
 		<section class="introduceArea">
@@ -45,7 +50,11 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 				</h4>
 			</div>
 			<div class="introduceImg">
-				<img src="../../public/images/stamp013-1.png" alt="" draggable="false" />
+				<img
+					src="../../public/images/stamp013-1.png"
+					alt=""
+					draggable="false"
+				/>
 			</div>
 		</section>
 
@@ -70,7 +79,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 							張有義
 						</span>
 					</h4>
-					<a href="" class="aboutMore">了解更多</a>
+					<a href="/aboutWeb" class="aboutMore">了解更多</a>
 				</div>
 				<div class="aboutImg">
 					<img src="../../public/images/stamp001-2.jpg" alt="" />
@@ -97,104 +106,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 			<div class="serveCarousel">
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<a href="#">
-								<div class="swiperImg">
-									<img src="../../public/images/stamp001-1.jpg" alt="" />
-								</div>
-								<div class="swiperCentent">
-									<span class="swiperTitle"> 郵票 </span>
-									<span class="swiperTitleEn"> stamp </span>
-									<span class="swiperArticle">
-										郵封的 歷史：從手工製作到現代生產
-									</span>
-								</div>
-							</a>
-						</div>
-						<div class="swiper-slide">
-							<a href="#">
-								<div class="swiperImg">
-									<img src="../../public/images/stamp001-1.jpg" alt="" />
-								</div>
-								<div class="swiperCentent">
-									<span class="swiperTitle"> 郵票 </span>
-									<span class="swiperTitleEn"> stamp </span>
-									<span class="swiperArticle">
-										郵封的 歷史：從手工製作到現代生產
-									</span>
-								</div>
-							</a>
-						</div>
-						<div class="swiper-slide">
-							<a href="#">
-								<div class="swiperImg">
-									<img src="../../public/images/stamp001-1.jpg" alt="" />
-								</div>
-								<div class="swiperCentent">
-									<span class="swiperTitle"> 郵票 </span>
-									<span class="swiperTitleEn"> stamp </span>
-									<span class="swiperArticle">
-										郵封的 歷史：從手工製作到現代生產
-									</span>
-								</div>
-							</a>
-						</div>
-						<div class="swiper-slide">
-							<a href="#">
-								<div class="swiperImg">
-									<img src="../../public/images/stamp001-1.jpg" alt="" />
-								</div>
-								<div class="swiperCentent">
-									<span class="swiperTitle"> 郵票 </span>
-									<span class="swiperTitleEn"> stamp </span>
-									<span class="swiperArticle">
-										郵封的 歷史：從手工製作到現代生產
-									</span>
-								</div>
-							</a>
-						</div>
-						<div class="swiper-slide">
-							<a href="#">
-								<div class="swiperImg">
-									<img src="../../public/images/stamp001-1.jpg" alt="" />
-								</div>
-								<div class="swiperCentent">
-									<span class="swiperTitle"> 郵票 </span>
-									<span class="swiperTitleEn"> stamp </span>
-									<span class="swiperArticle">
-										郵封的 歷史：從手工製作到現代生產
-									</span>
-								</div>
-							</a>
-						</div>
-						<div class="swiper-slide">
-							<a href="#">
-								<div class="swiperImg">
-									<img src="../../public/images/stamp001-1.jpg" alt="" />
-								</div>
-								<div class="swiperCentent">
-									<span class="swiperTitle"> 郵票 </span>
-									<span class="swiperTitleEn"> stamp </span>
-									<span class="swiperArticle">
-										郵封的 歷史：從手工製作到現代生產
-									</span>
-								</div>
-							</a>
-						</div>
-						<div class="swiper-slide">
-							<a href="#">
-								<div class="swiperImg">
-									<img src="../../public/images/stamp001-1.jpg" alt="" />
-								</div>
-								<div class="swiperCentent">
-									<span class="swiperTitle"> 郵票 </span>
-									<span class="swiperTitleEn"> stamp </span>
-									<span class="swiperArticle">
-										郵封的 歷史：從手工製作到現代生產
-									</span>
-								</div>
-							</a>
-						</div>
+						<Sever />
 					</div>
 				</div>
 			</div>
@@ -218,45 +130,12 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
 				<div class="articleInfo">
 					<ul class="articleList">
-						<li class="articleBox">
-							<div class="articleDate">2024.07.22</div>
-							<h3 class="articleTex">
-								<a href="#">郵封的歷史：從手工製作到現代生產</a>
-							</h3>
-						</li>
-						<li class="articleBox">
-							<div class="articleDate">2024.07.22</div>
-							<h3 class="articleTex">
-								<a href="#">郵封設計的藝術：從簡單到華麗</a>
-							</h3>
-						</li>
-						<li class="articleBox">
-							<div class="articleDate">2024.07.22</div>
-							<h3 class="articleTex"><a href="#">郵封的功能與用途</a></h3>
-						</li>
-						<li class="articleBox">
-							<div class="articleDate">2024.07.22</div>
-							<h3 class="articleTex">
-								<a href="#">環保郵封：可持續發展的選擇</a>
-							</h3>
-						</li>
-						<li class="articleBox">
-							<div class="articleDate">2024.07.22</div>
-							<h3 class="articleTex">
-								<a href="#">電子郵件時代的郵封：是否還有市場？</a>
-							</h3>
-						</li>
-						<li class="articleBox">
-							<div class="articleDate">2024.07.22</div>
-							<h3 class="articleTex">
-								<a href="#">自製創意郵封：DIY指南</a>
-							</h3>
-						</li>
+						<Article />
 					</ul>
-					<a href="" class="articleMore">了解更多</a>
+					<a href="/articles/article" class="articleMore">了解更多</a>
 				</div>
 			</div>
 		</section>
+		
 	</main>
-
 </BaseLayout>
