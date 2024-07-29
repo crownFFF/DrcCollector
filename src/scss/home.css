@@ -628,7 +628,7 @@ footer .footerBottom .copyright {
     transition: 0.8s all ease-in-out;
     right: -100%;
     top: 0;
-    padding: 100px 0;
+    padding: 50px 0;
   }
   header .mobilemenu.show {
     right: 0%;
