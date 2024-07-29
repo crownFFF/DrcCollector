@@ -1,7 +1,5 @@
-import { defineConfig } from 'vite';
-
 export default defineConfig({
-  plugins: [],
+  plugins: [vue()],
   css: {
     preprocessorOptions: {
       css: {
@@ -11,5 +9,11 @@ export default defineConfig({
         `
       }
     }
-  }
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
 });
+

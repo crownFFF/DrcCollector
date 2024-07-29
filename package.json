@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@types/scrollreveal": "^0.0.11",
-    "@types/slick-carousel": "^1.6.40"
+    "@types/slick-carousel": "^1.6.40",
+    "@vitejs/plugin-vue": "^5.1.1"
   }
 }
