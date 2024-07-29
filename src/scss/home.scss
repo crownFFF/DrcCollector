@@ -10,7 +10,7 @@ html {
 }
 
 .indexPage {
-  background: url("../assets/BGI.jpg") no-repeat center / cover;
+  background: url("../../assets/BGI.jpg") no-repeat center / cover;
 }
 
 .loadingArea {
@@ -309,7 +309,7 @@ main {
     width: 1200px;
 
     .aboutBg {
-      background: url("../assets/stamp009-1.jpg") center center / contain no-repeat;
+      background: url("../../assets/stamp009-1.jpg") center center / contain no-repeat;
       width: 70%;
       height: 40%;
       position: absolute;
@@ -362,7 +362,7 @@ main {
     }
 
     .serveBg {
-      background: url("../assets/stamp002-2.jpg") center center / cover no-repeat;
+      background: url("../../assets/stamp002-2.jpg") center center / cover no-repeat;
       width: 100%;
       height: 100%;
       position: absolute;
@@ -469,7 +469,7 @@ main {
   }
 
   .articleArea {
-    background: url("../assets/BGI.jpg") no-repeat center / cover;
+    background: url("../../assets/BGI.jpg") no-repeat center / cover;
     padding: 100px 0 100px;
     position: relative;
 
@@ -566,7 +566,7 @@ main {
 
 footer {
   width: 100%;
-  background-image: url("../assets/BGI2.png");
+  background-image: url("../../assets/BGI2.png");
   padding-top: 50px;
 
   .footerContent {
