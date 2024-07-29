@@ -9,7 +9,7 @@
 這個專案前端使用的框架為Astro以及結合Vue做開發
 
 主要以Astro作為開發框架原因是由於此網站主要以MPA模式開發
-那Astro相較其他框架使用更少 JavaScript，複雜度更低。
+那Astro相較其他框架使用更少 JavaScript，複雜度更低
 也可以兼顧網站載入速度與SEO
 Astro也支持跨框架，支援 React、Vue...等。
 
