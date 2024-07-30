@@ -62,6 +62,12 @@ main .aboutContentArea .aboutContent .contentArticle {
   line-height: 150%;
   letter-spacing: 2px;
 }
+main .exhibitContentArea {
+  width: 1260px;
+  margin: auto;
+  padding: 50px 0 50px;
+  display: flex;
+}
 
 .Aside {
   position: sticky;

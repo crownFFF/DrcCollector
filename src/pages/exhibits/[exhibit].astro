@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BannerLayout from "../../layouts/BannerLayout.astro";
+import Aside from "../../components/aside.astro";
+
+const BannerImg = "../stamp013-1.png";
+
+export function getStaticPaths() {
+  return [
+    {params: {exhibit: 'FDC'}},
+    {params: {exhibit: 'RegisteredCover'}},
+    {params: {exhibit: 'OtherPostalCovers'}},
+    {params: {exhibit: 'Stamp'}},
+    {params: {exhibit: 'Postcard'}},
+    {params: {exhibit: 'PostalCard'}},
+  ];
+}
+---
+
+<BaseLayout pagetitle="展品介紹" bodyClass="exhibitPage">
+  <BannerLayout pagetitle="展品介紹" BannerImg={BannerImg}>
+    <section class="exhibitContentArea">
+      <Aside asideTitle="展品介紹">
+        <li class="asideItem"><a href="/exhibits/FDC">首日封</a></li>
+        <li class="asideItem"><a href="/exhibits/RegisteredCover">實寄封</a></li>
+        <li class="asideItem"><a href="/exhibits/OtherPostalCovers">其他郵封</a></li>
+        <li class="asideItem"><a href="/exhibits/Stamp">郵票</a></li>
+        <li class="asideItem"><a href="/exhibits/Postcard">明信片</a></li>
+        <li class="asideItem"><a href="/exhibits/PostalCard">郵簡</a></li>
+      </Aside>
+    </section>
+
+
+
+
+  </BannerLayout>
+</BaseLayout>
+<script>
+  import $ from 'jquery'
+      $.ajax({
+        url: 'http://fongmin.byethost7.com/work-product/exhibits-list.php',
+        type: 'post',
+        dataType: 'json',
+        success: function(data) {
+          console.log(data);
+        },
+        error: function(data) {
+          alert("系統目前無法連接後台資料庫")
+        }
+      })
+</script>
