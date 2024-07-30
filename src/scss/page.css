@@ -46,31 +46,6 @@ main .aboutContentArea {
   padding: 50px 0 50px;
   display: flex;
 }
-main .aboutContentArea .aboutAside {
-  position: sticky;
-  width: 150px;
-  background-color: #4d4d4d;
-  padding: 10px;
-  top: 200px;
-  letter-spacing: 2px;
-  margin-left: 50px;
-}
-main .aboutContentArea .aboutAside .asideList h3 {
-  font-size: 24px;
-  border-bottom: 1px solid #838383;
-  padding: 10px;
-  color: #b8a498;
-  cursor: default;
-}
-main .aboutContentArea .aboutAside .asideList .asideItem {
-  padding: 10px;
-  line-height: 50px;
-  font-size: 18px;
-  border-bottom: 1px solid #838383;
-}
-main .aboutContentArea .aboutAside .asideList .asideItem a {
-  color: #fff;
-}
 main .aboutContentArea .aboutContent {
   margin-left: 50px;
   width: calc(100% - 150px);
@@ -88,6 +63,32 @@ main .aboutContentArea .aboutContent .contentArticle {
   letter-spacing: 2px;
 }
 
+.Aside {
+  position: sticky;
+  width: 150px;
+  background-color: #4d4d4d;
+  padding: 10px;
+  top: 200px;
+  letter-spacing: 2px;
+  margin-left: 50px;
+}
+.Aside .asideList h3 {
+  font-size: 24px;
+  border-bottom: 1px solid #838383;
+  padding: 10px;
+  color: #b8a498;
+  cursor: default;
+}
+.Aside .asideList .asideItem {
+  padding: 10px;
+  line-height: 50px;
+  font-size: 18px;
+  border-bottom: 1px solid #838383;
+}
+.Aside .asideList .asideItem a {
+  color: #fff;
+}
+
 @media (max-width: 1260px) {
   main .aboutContentArea {
     width: 90%;
@@ -100,19 +101,19 @@ main .aboutContentArea .aboutContent .contentArticle {
   main .aboutContentArea {
     width: 95%;
   }
-  main .aboutContentArea .aboutAside {
-    width: 100px;
-  }
-  main .aboutContentArea .aboutAside .asideList h3 {
-    font-size: 18px;
-  }
-  main .aboutContentArea .aboutAside .asideList .asideItem {
-    font-size: 16px;
-  }
   main .aboutContentArea .aboutContent {
     margin-left: 20px;
   }
   main .aboutContentArea .aboutContent .contentArticle {
+    font-size: 16px;
+  }
+  .Aside {
+    width: 100px;
+  }
+  .Aside .asideList h3 {
+    font-size: 18px;
+  }
+  .Aside .asideList .asideItem {
     font-size: 16px;
   }
 }
@@ -126,17 +127,17 @@ main .aboutContentArea .aboutContent .contentArticle {
     flex-direction: column;
     padding: 20px 0 20px;
   }
-  main .aboutContentArea .aboutAside {
+  main .aboutContentArea .aboutContent {
+    width: 95%;
+  }
+  .Aside {
     width: 80%;
     margin: auto;
     position: relative;
     text-align: center;
     top: 0;
   }
-  main .aboutContentArea .aboutAside .asideList .asideItem {
+  .Aside .asideList .asideItem {
     line-height: 20px;
   }
-  main .aboutContentArea .aboutContent {
-    width: 95%;
-  }
-}/*# sourceMappingURL=about.css.map */
+}/*# sourceMappingURL=page.css.map */

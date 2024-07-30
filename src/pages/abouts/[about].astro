@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BannerLayout from "../../layouts/BannerLayout.astro";
+import AboutContent from "../../components/aboutContent.astro";
+import Aside from "../../components/aside.astro";
+const BannerImg = "../stamp013-1.png";
+
+export function getStaticPaths() {
+  return [
+    {params: {about: 'web'}},
+    {params: {about: 'story'}}
+  ];
+}
+const { about } = Astro.params;
+---
+<BaseLayout pagetitle="關於網站" bodyClass="aboutPage">
+  <BannerLayout pagetitle="關於我們" BannerImg={BannerImg}>
+    <section class="aboutContentArea">
+      <Aside asideTitle="關於我們">
+        <li class="asideItem"><a href="/abouts/story">建立-故事</a></li>
+        <li class="asideItem"><a href="/abouts/web">關於網站</a></li>
+      </Aside>
+      <AboutContent title={about} />
+    </section>
+  </BannerLayout>
+</BaseLayout>

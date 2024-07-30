@@ -46,33 +46,7 @@ main {
     margin: auto;
     padding: 50px 0 50px;
     display: flex;
-    .aboutAside {
-      position: sticky;
-      width: 150px;
-      background-color: #4d4d4d;
-      padding: 10px;
-      top: 200px;
-      letter-spacing: 2px;
-      margin-left: 50px;
-      .asideList {
-        h3 {
-          font-size: 24px;
-          border-bottom: 1px solid #838383;
-          padding: 10px;
-          color: #b8a498;
-          cursor: default;
-        }
-        .asideItem {
-          padding: 10px;
-          line-height: 50px;
-          font-size: 18px;
-          border-bottom: 1px solid #838383;
-          a {
-            color: #fff;
-          }
-        }
-      }
-    }
+
     .aboutContent {
       margin-left: 50px;
       width: calc(100% - 150px);
@@ -91,6 +65,35 @@ main {
     }
   }
 }
+
+.Aside {
+  position: sticky;
+  width: 150px;
+  background-color: #4d4d4d;
+  padding: 10px;
+  top: 200px;
+  letter-spacing: 2px;
+  margin-left: 50px;
+  .asideList {
+    h3 {
+      font-size: 24px;
+      border-bottom: 1px solid #838383;
+      padding: 10px;
+      color: #b8a498;
+      cursor: default;
+    }
+    .asideItem {
+      padding: 10px;
+      line-height: 50px;
+      font-size: 18px;
+      border-bottom: 1px solid #838383;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
 @media (max-width: 1260px) {
   main {
     .aboutContentArea {
@@ -105,22 +108,23 @@ main {
   main {
     .aboutContentArea {
       width: 95%;
-      .aboutAside {
-        width: 100px;
-        .asideList {
-          h3 {
-            font-size: 18px;
-          }
-          .asideItem {
-            font-size: 16px;
-          }
-        }
-      }
+
       .aboutContent {
         margin-left: 20px;
         .contentArticle {
           font-size: 16px;
         }
+      }
+    }
+  }
+  .Aside {
+    width: 100px;
+    .asideList {
+      h3 {
+        font-size: 18px;
+      }
+      .asideItem {
+        font-size: 16px;
       }
     }
   }
@@ -138,20 +142,21 @@ main {
       flex-direction: column;
       padding: 20px 0 20px;
 
-      .aboutAside {
-        width: 80%;
-        margin: auto;
-        position: relative;
-        text-align: center;
-        top: 0;
-        .asideList {
-          .asideItem {
-            line-height: 20px;
-          }
-        }
-      }
+   
       .aboutContent {
         width: 95%;
+      }
+    }
+  }
+  .Aside {
+    width: 80%;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    top: 0;
+    .asideList {
+      .asideItem {
+        line-height: 20px;
       }
     }
   }

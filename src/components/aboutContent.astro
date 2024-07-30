@@ -1,0 +1,41 @@
+---
+let aboutContent = "";
+const { title } = Astro.props;
+---
+{title === "story" ? (
+  <div class="aboutContent">
+    <h3 class="contentTitle">建立-故事</h3>
+    <p class="contentArticle">
+      在繁忙的都市中，有一位名叫亞歷克斯的年輕人，他對於收藏郵封充滿了熱情。<br />
+      亞歷克斯的家中擁有各種稀有的郵封，他經常花費數小時研究郵封的歷史、價值和設計。隨著時間的推移，他發現自己的收藏越來越龐大，但卻缺乏一個方便的方式來展示和分享這些珍貴的郵封。<br />
+      有一天，亞歷克斯決定將自己的興趣變成事業，他想創建一個郵封愛好者的網站，讓人們可以輕鬆地展示、交易和討論郵封。<br />
+      他心中有一個清晰的願景：一個不僅僅是展示郵封的網站，而是一個充滿熱情和知識的社群平台。<br />
+      亞歷克斯開始了他的大計劃。首先，他設計了一個網站的雛形，選擇了一個簡潔而優雅的界面，讓用戶能夠輕鬆上傳自己的郵封照片，並添加詳盡的描述和歷史背景。<br />
+      網站中還包含了一個互動的論壇，讓郵封愛好者們可以分享經驗、討論郵封的價值和設計，甚至進行交易。<br />
+      在設計過程中，亞歷克斯花了很多時間研究用戶需求，他希望網站不僅僅是一個展示平台，更是一個活躍的社區。<br />
+      他邀請了幾位郵封專家和收藏家參與測試，並根據他們的反饋進行了調整。<br />
+      網站正式上線後，反響超乎亞歷克斯的預期。<br />
+      郵封愛好者們紛紛加入這個平台，他們不僅能夠展示自己的收藏，還能與其他愛好者交流，分享知識和經驗。<br />
+      亞歷克斯看著這個社群逐漸壯大，感到無比欣慰。他知道，這個網站不僅實現了他的夢想，也為全球的郵封愛好者們提供了一個獨特的交流和展示空間。<br />
+    </p>
+  </div>
+) : title === "web" ? (
+  <div class="aboutContent">
+    <h3 class="contentTitle">關於網站</h3>
+    <p class="contentArticle">
+      Sure, here's a story about creating a stamp collection website in English: <br /><br />
+      In a bustling city, a young man named Alex was deeply passionate about stamp collecting. His home was filled with rare and valuable stamps, and he spent countless hours studying their history, value, and design. Over time, he found his collection growing more impressive, but he lacked an easy way to showcase and share his prized stamps. <br /><br />
+      One day, Alex decided to turn his hobby into a business. He envisioned creating a website for stamp enthusiasts—a platform where people could easily display, trade, and discuss stamps. His vision was not just to create a showcase but to build a vibrant community full of enthusiasm and knowledge. <br /><br />
+      Alex began his ambitious project by designing a website prototype. He chose a clean and elegant interface that would allow users to upload photos of their stamps, add detailed descriptions, and provide historical context. The site also featured an interactive forum where collectors could share experiences, discuss stamp values and designs, and even conduct trades. <br /><br />
+      During the design process, Alex spent a lot of time researching user needs. He wanted the website to be more than just a display platform; he aimed to create an active community. He invited several stamp experts and collectors to test the site and made adjustments based on their feedback. <br /><br />
+      When the website finally launched, the response exceeded Alex's expectations. Stamp enthusiasts from around the world flocked to the platform, eager to showcase their collections and connect with other collectors. Alex watched in delight as the community grew and flourished. He knew that the website had not only fulfilled his dream but also provided a unique space for stamp lovers everywhere to connect and share their passion. <br /><br />
+    </p>
+  </div>
+) : (
+  <div class="aboutContent">
+    <h3 class="contentTitle">內容未找到</h3>
+    <p class="contentArticle">
+      抱歉，我們無法找到您要查找的內容。請嘗試其他標題。
+    </p>
+  </div>
+)}
