@@ -38,7 +38,7 @@ export function getStaticPaths() {
 <script>
   import $ from 'jquery'
       $.ajax({
-        url: '../../lib/exhibits-list.php',
+        url: '../lib/exhibits-list.php',
         type: 'post',
         dataType: 'json',
         success: function(data) {
