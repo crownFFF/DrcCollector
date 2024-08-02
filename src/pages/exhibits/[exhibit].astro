@@ -35,3 +35,19 @@ export function getStaticPaths() {
 
   </BannerLayout>
 </BaseLayout>
+<script>
+  import $ from 'jquery'
+
+      $.ajax({
+        url: 'http://fongmin.byethost7.com/work-product/exhibits-list.php?i=1',
+        type: 'post',
+        dataType: 'json',
+        success: function(data) {
+          console.log(data);
+        },
+        error: function(data) {
+          alert("系統目前無法連接後台資料庫")
+        }
+      })
+
+</script>
