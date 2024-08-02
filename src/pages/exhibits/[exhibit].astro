@@ -35,19 +35,3 @@ export function getStaticPaths() {
 
   </BannerLayout>
 </BaseLayout>
-<script>
-  import $ from 'jquery'
-
-      $.ajax({
-        url: '../exhibits-list.php',
-        type: 'post',
-        dataType: 'json',
-        success: function(data) {
-          console.log(data);
-        },
-        error: function(data) {
-          alert("系統目前無法連接後台資料庫")
-        }
-      })
-
-</script>
