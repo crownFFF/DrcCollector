@@ -2,7 +2,7 @@
 header('Access-Control-Allow-Origin:*');
 header('Content-Type:application/json;chartset=utf-8');
 
-require_once('connection.php');
+require_once('./connection.php');
 
 $sql = 'SELECT type FROM type';
 $result = $link->query($sql);
