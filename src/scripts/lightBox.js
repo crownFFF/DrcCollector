@@ -93,6 +93,4 @@ $('.lightBoxclose').on('click', (e) => {
   $('.lightBoxArea').css('display', 'none')
   $('.secImg img').remove()
   $(".lightBoxImg img").removeAttr('style')
-
-
 })
