@@ -3,6 +3,7 @@ import $ from 'jquery'
 let scale = 1;
 let isDragging = false
 let startX, startY, initialX, initialY
+
 $(".lightBoxImg img").on("mousedown", (e) => {
   isDragging = true
   startX = e.clientX
@@ -31,6 +32,7 @@ $(window).on('mouseup', (e) => {
 const maxScale = 2.5;
 const scaleFactor = 0.1;
 const lightBoxImg = $(".lightBoxImg")
+
 lightBoxImg.on("wheel", (e) => {
   e.preventDefault()
   if (e.originalEvent.deltaY < 0) {
@@ -42,9 +44,7 @@ lightBoxImg.on("wheel", (e) => {
 })
 
 $('.exhibititem img').on('click', (e) => {
-  console.log(e.target.dataset.id)
   const id = e.target.dataset.id
-
   $.ajax({
     url: 'https://drccollector.hopto.org:8090/preview/drccollectorapi.org/exhibits-item.php',
     type: 'POST',
@@ -87,10 +87,12 @@ $('.exhibititem img').on('click', (e) => {
   })
 
   $('.lightBoxArea').css('display', 'block')
-
 })
 
 $('.lightBoxclose').on('click', (e) => {
   $('.lightBoxArea').css('display', 'none')
   $('.secImg img').remove()
+  $(".lightBoxImg img").removeAttr('style')
+
+
 })
