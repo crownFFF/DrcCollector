@@ -40,6 +40,10 @@ const list = ref(
     },
   ]
 )
+
+
+
+
 </script>
 
 <template>

@@ -2,52 +2,74 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BannerLayout from "../../layouts/BannerLayout.astro";
 import Aside from "../../components/aside.astro";
+import LightBox from "../../components/lightBox.astro";
+const BannerImg = "/images/stamp013-1.png";
 
-const BannerImg = "../stamp013-1.png";
-
-export function getStaticPaths() {
-  return [
-    {params: {exhibit: 'FDC'}},
-    {params: {exhibit: 'RegisteredCover'}},
-    {params: {exhibit: 'OtherPostalCovers'}},
-    {params: {exhibit: 'Stamp'}},
-    {params: {exhibit: 'Postcard'}},
-    {params: {exhibit: 'PostalCard'}},
-  ];
+export async function getStaticPaths() {
+  const response = await fetch(
+    "https://drccollector.hopto.org:8090/preview/drccollectorapi.org/exhibits-list.php",
+  );
+  const type = await response.json();
+  const typelist = type.map((item) => {
+    return { params: { exhibit: `${item.typeEN}` } };
+  });
+  return typelist;
 }
+
+const response = await fetch(
+  "https://drccollector.hopto.org:8090/preview/drccollectorapi.org/exhibits-list.php",
+);
+const type = await response.json();
+
+const cover = await fetch(
+  "https://drccollector.hopto.org:8090/preview/drccollectorapi.org/exhibits-item.php",
+);
+const coverData = await cover.json();
+
+const { exhibit } = Astro.params;
+const coverList = coverData.filter((item) => {
+  return item.typeEN == exhibit;
+});
+// console.log(coverData)
 ---
 
 <BaseLayout pagetitle="展品介紹" bodyClass="exhibitPage">
   <BannerLayout pagetitle="展品介紹" BannerImg={BannerImg}>
     <section class="exhibitContentArea">
       <Aside asideTitle="展品介紹">
-        <li class="asideItem"><a href="/exhibits/FDC">首日封</a></li>
-        <li class="asideItem"><a href="/exhibits/RegisteredCover">實寄封</a></li>
-        <li class="asideItem"><a href="/exhibits/OtherPostalCovers">其他郵封</a></li>
-        <li class="asideItem"><a href="/exhibits/Stamp">郵票</a></li>
-        <li class="asideItem"><a href="/exhibits/Postcard">明信片</a></li>
-        <li class="asideItem"><a href="/exhibits/PostalCard">郵簡</a></li>
-      </Aside>
-    </section>
-
-
-
-
-  </BannerLayout>
-</BaseLayout>
-<script>
-  import $ from 'jquery'
-
-      $.ajax({
-        url: 'http://fongmin.byethost7.com/work-product/exhibits-list.php?i=1',
-        type: 'post',
-        dataType: 'json',
-        success: function(data) {
-          console.log(data);
-        },
-        error: function(data) {
-          alert("系統目前無法連接後台資料庫")
+        {
+          type.map((item) => {
+            return (
+              <li class="asideItem">
+                <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
+              </li>
+            );
+          })
         }
-      })
-
-</script>
+      </Aside>
+      <div class="exhibitList">
+        {
+          coverList.map((item) => {
+            return (
+              <div class="exhibititem">
+                <img
+                  src={`https://drccollector.hopto.org/images/envelopes/${item.img}`}
+                  alt=""
+                  data-id={`${item.id}`}
+                  draggable="false"
+                />
+        
+                <div class="exhibitTitle">
+                  <p>{item.theme ? `主題:${item.theme}` : ``}</p>
+                  <p>{item.time ? `年份:${item.time}` : ``}</p>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
+    <LightBox />
+  </BannerLayout>
+  <script src="/src/scripts/lightBox.js"></script>
+</BaseLayout>
