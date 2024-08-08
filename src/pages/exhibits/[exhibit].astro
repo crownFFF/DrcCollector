@@ -47,37 +47,7 @@ const coverList = coverData.filter((item) => {
             );
           })
         }
-        {
-          type.map((item) => {
-            return (
-              <li class="asideItem">
-                <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
-              </li>
-            );
-          })
-        }
       </Aside>
-      <div class="exhibitList">
-        {
-          coverList.map((item) => {
-            return (
-              <div class="exhibititem">
-                <img
-                  src={`https://drccollector.hopto.org/images/envelopes/${item.img}`}
-                  alt=""
-                  data-id={`${item.id}`}
-                  draggable="false"
-                />
-        
-                <div class="exhibitTitle">
-                  <p>{item.theme ? `主題:${item.theme}` : ``}</p>
-                  <p>{item.time ? `年份:${item.time}` : ``}</p>
-                </div>
-              </div>
-            );
-          })
-        }
-      </div>
       <div class="exhibitList">
         {
           coverList.map((item) => {
@@ -101,9 +71,7 @@ const coverList = coverData.filter((item) => {
       </div>
     </section>
     <LightBox />
-    <LightBox />
   </BannerLayout>
-  <script src="/src/scripts/lightBox.js"></script>
   <script src="/src/scripts/lightBox.js"></script>
 </BaseLayout>
 

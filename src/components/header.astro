@@ -36,11 +36,6 @@ const type = await response.json();
             {type.map((item)=>{
               return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
              })}
-
-            {type.map((item)=>{
-              return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
-             })}
-
           </div>
         </li>
         <li>
@@ -116,9 +111,6 @@ const type = await response.json();
         <li class="menuitem">
           <h3>展品介紹</h3>
           <div class="menulist">
-            {type.map((item)=>{
-              return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
-             })}
             {type.map((item)=>{
               return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
              })}
