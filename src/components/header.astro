@@ -37,6 +37,10 @@ const type = await response.json();
               return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
              })}
 
+            {type.map((item)=>{
+              return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
+             })}
+
           </div>
         </li>
         <li>
@@ -82,6 +86,7 @@ const type = await response.json();
   <section class="mobilemenu">
     <div class="bgbox">
       <img src="/images/stamp013-1.png" alt="" draggable="false" />
+      <img src="/images/stamp013-1.png" alt="" draggable="false" />
     </div>
     <a class="closeBox">
       <span></span>
@@ -111,6 +116,9 @@ const type = await response.json();
         <li class="menuitem">
           <h3>展品介紹</h3>
           <div class="menulist">
+            {type.map((item)=>{
+              return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
+             })}
             {type.map((item)=>{
               return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
              })}

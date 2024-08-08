@@ -30,6 +30,9 @@ const type = await response.json();
             {type.map((item)=>{
               return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
              })}
+            {type.map((item)=>{
+              return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
+             })}
           </div>
         </li>
         <li class="footerItem">
