@@ -1,5 +1,8 @@
 ---
-
+const response = await fetch(
+  "https://drccollector.hopto.org:8090/preview/drccollectorapi.org/exhibits-list.php",
+);
+const type = await response.json();
 ---
 <header>
   <div class="logo">
@@ -30,12 +33,10 @@
         <li>
           <h3>展品介紹</h3>
           <div class="navigationItem">
-            <a href="/exhibits/FDC">首日封</a>
-            <a href="/exhibits/RegisteredCover">實寄封</a>
-            <a href="/exhibits/OtherPostalCovers">其他郵封</a>
-            <a href="/exhibits/Stamp">郵票</a>
-            <a href="/exhibits/Postcard">明信片</a>
-            <a href="/exhibits/PostalCard">郵簡</a>
+            {type.map((item)=>{
+              return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
+             })}
+
           </div>
         </li>
         <li>
@@ -80,7 +81,7 @@
 
   <section class="mobilemenu">
     <div class="bgbox">
-      <img src="../stamp013-1.png" alt="" draggable="false" />
+      <img src="/images/stamp013-1.png" alt="" draggable="false" />
     </div>
     <a class="closeBox">
       <span></span>
@@ -110,12 +111,9 @@
         <li class="menuitem">
           <h3>展品介紹</h3>
           <div class="menulist">
-            <a href="/exhibits/FDC">首日封</a>
-            <a href="/exhibits/RegisteredCover">實寄封</a>
-            <a href="/exhibits/OtherPostalCovers">其他郵封</a>
-            <a href="/exhibits/Stamp">郵票</a>
-            <a href="/exhibits/Postcard">明信片</a>
-            <a href="/exhibits/PostalCard">郵簡</a>
+            {type.map((item)=>{
+              return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
+             })}
           </div>
         </li>
         <li class="menuitem">

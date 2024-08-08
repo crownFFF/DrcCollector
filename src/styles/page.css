@@ -1,0 +1,264 @@
+main .innerBannerArea {
+  position: relative;
+}
+main .innerBannerArea .innerBanner {
+  display: flex;
+  justify-content: center;
+  background-color: #8f8f8f;
+  overflow: hidden;
+}
+main .innerBannerArea .innerBanner img {
+  margin-top: -150px;
+  width: 1260px;
+}
+main .innerBannerArea .BannerTitle {
+  width: 300px;
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 20px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 140px);
+  color: aliceblue;
+  transition: 0.5s;
+  cursor: default;
+}
+main .innerBannerArea .BannerTitle:hover {
+  color: #8b8b8b;
+}
+main .innerBannerArea .BannerSubTitle {
+  font-size: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 500px;
+  background-color: #fff;
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+  cursor: default;
+}
+main .innerBannerArea .BannerSubTitle a {
+  color: #411800;
+}
+main .aboutContentArea {
+  width: 1260px;
+  margin: auto;
+  padding: 50px 0 50px;
+  display: flex;
+}
+main .aboutContentArea .aboutContent {
+  margin-left: 50px;
+  width: calc(100% - 150px);
+}
+main .aboutContentArea .aboutContent .contentTitle {
+  font-size: 32px;
+  letter-spacing: 3px;
+  padding: 10px 0 20px;
+  border-bottom: 1px solid #4d4d4d;
+}
+main .aboutContentArea .aboutContent .contentArticle {
+  padding: 10px 20px;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 2px;
+}
+main .exhibitContentArea {
+  width: 1260px;
+  margin: auto;
+  padding: 50px 0 50px;
+  display: flex;
+}
+main .exhibitContentArea .exhibitList {
+  margin-left: 50px;
+  width: calc(100% - 150px);
+  display: grid;
+  gap: 10px;
+  justify-content: flex-start;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+main .exhibitContentArea .exhibitList .exhibititem {
+  position: relative;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 320px;
+}
+main .exhibitContentArea .exhibitList .exhibititem img {
+  max-width: 80%;
+  max-height: 80%;
+  cursor: pointer;
+}
+main .exhibitContentArea .exhibitList .exhibititem .exhibitTitle {
+  position: absolute;
+  top: 0;
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 30px;
+  background: rgba(77, 77, 77, 0.6);
+  color: #fff;
+  padding: 10px;
+  width: 60%;
+}
+main .exhibitContentArea .exhibitList .exhibititem .exhibitTitle p {
+  border-bottom: 1px solid #bebebe;
+}
+main .lightBoxArea {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 100px 0 0 0;
+  z-index: 1;
+  display: none;
+}
+main .lightBoxArea .lightBox {
+  max-width: 1400px;
+  min-width: 1260px;
+  height: 80%;
+  background-color: #ffffff;
+  margin: auto;
+  position: relative;
+  padding: 20px;
+  display: flex;
+}
+main .lightBoxArea .lightBox .lightBoxContent {
+  width: 70%;
+}
+main .lightBoxArea .lightBox .lightBoxContent .lightBoxImg {
+  height: 80%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+main .lightBoxArea .lightBox .lightBoxContent .lightBoxImg img {
+  max-width: 100%;
+  max-height: 550px;
+  transition: transform 0.2s ease;
+  position: absolute;
+  cursor: grab;
+  transform-origin: top left;
+}
+main .lightBoxArea .lightBox .lightBoxContent .secImg {
+  width: calc(100% - 40px);
+  height: calc(20% - 40px);
+  padding: 20px;
+  display: none;
+  justify-content: center;
+  gap: 20px;
+}
+main .lightBoxArea .lightBox .lightBoxContent .secImg img {
+  height: 100%;
+}
+main .lightBoxArea .lightBox .lightBoxInfo {
+  width: calc(30% - 40px);
+  height: calc(100% - 20px);
+  background-color: rgba(97, 60, 38, 0.2745098039);
+  margin-left: 20px;
+  padding: 10px;
+  line-height: 30px;
+  font-size: 18px;
+  position: relative;
+}
+main .lightBoxArea .lightBox .lightBoxInfo p {
+  margin-top: 10px;
+}
+main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
+  border: none;
+  font-size: 20px;
+  padding: 10px 25px;
+  background-color: #816f64;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 5px;
+}
+
+.Aside {
+  position: sticky;
+  width: 150px;
+  background-color: #4d4d4d;
+  padding: 10px;
+  top: 200px;
+  letter-spacing: 2px;
+  margin-left: 50px;
+}
+.Aside .asideList h3 {
+  font-size: 24px;
+  border-bottom: 1px solid #838383;
+  padding: 10px;
+  color: #b8a498;
+  cursor: default;
+}
+.Aside .asideList .asideItem {
+  padding: 10px;
+  line-height: 50px;
+  font-size: 18px;
+  border-bottom: 1px solid #838383;
+}
+.Aside .asideList .asideItem a {
+  color: #fff;
+}
+
+@media (max-width: 1260px) {
+  main .aboutContentArea {
+    width: 90%;
+  }
+  main .aboutContentArea .aboutAside {
+    margin-left: 0;
+  }
+}
+@media (max-width: 1024px) {
+  main .aboutContentArea {
+    width: 95%;
+  }
+  main .aboutContentArea .aboutContent {
+    margin-left: 20px;
+  }
+  main .aboutContentArea .aboutContent .contentArticle {
+    font-size: 16px;
+  }
+  .Aside {
+    width: 100px;
+  }
+  .Aside .asideList h3 {
+    font-size: 18px;
+  }
+  .Aside .asideList .asideItem {
+    font-size: 16px;
+  }
+}
+@media (max-width: 500px) {
+  main .innerBannerArea .BannerSubTitle {
+    position: relative;
+    width: 100%;
+    font-size: 24px;
+  }
+  main .aboutContentArea {
+    flex-direction: column;
+    padding: 20px 0 20px;
+  }
+  main .aboutContentArea .aboutContent {
+    width: 95%;
+  }
+  .Aside {
+    width: 80%;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    top: 0;
+  }
+  .Aside .asideList .asideItem {
+    line-height: 20px;
+  }
+}/*# sourceMappingURL=page.css.map */
