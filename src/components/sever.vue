@@ -16,7 +16,7 @@
       title: '實寄封',
       enTitle: 'stamp',
       article: '郵封的 歷史：從手工製作到現代生產',
-      url:'/exhibits/RegisteredCover?type=RegisteredCover',
+      url:'/exhibits/RegisteredCover',
     },
     {
       id: 3,
@@ -24,7 +24,7 @@
       title: '其他郵封',
       enTitle: 'stamp',
       article: '郵封的 歷史：從手工製作到現代生產',
-      url:'/exhibits/OtherPostalCovers?type=OtherPostalCovers',
+      url:'/exhibits/OtherPostalCovers',
     },
     {
       id: 4,
@@ -32,7 +32,7 @@
       title: '郵票',
       enTitle: 'stamp',
       article: '郵封的 歷史：從手工製作到現代生產',
-      url:'/exhibits/Stamp?type=Stamp',
+      url:'/exhibits/Stamp',
     },
     {
       id: 5,
@@ -40,7 +40,7 @@
       title: '明信片',
       enTitle: 'stamp',
       article: '郵封的 歷史：從手工製作到現代生產',
-      url:'/exhibits/Postcard?type=Postcard',
+      url:'/exhibits/Postcard',
     },
     {
       id: 6,
@@ -48,7 +48,7 @@
       title: '郵簡',
       enTitle: 'stamp',
       article: '郵封的 歷史：從手工製作到現代生產',
-      url:'/exhibits/PostalCard?type=PostalCard',
+      url:'/exhibits/PostalCard',
     }
     ]
   )

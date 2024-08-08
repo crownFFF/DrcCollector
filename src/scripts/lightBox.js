@@ -46,7 +46,7 @@ lightBoxImg.on("wheel", (e) => {
 $('.exhibititem img').on('click', (e) => {
   const id = e.target.dataset.id
   $.ajax({
-    url: 'https://drccollector.hopto.org:8090/preview/drccollectorapi.org/exhibits-item.php',
+    url: 'https://drc-api.hopto.org/api/exhibits-item.php',
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify({
