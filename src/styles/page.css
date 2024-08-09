@@ -153,8 +153,9 @@ main .lightBoxArea .lightBox .lightBoxContent .secImg {
   justify-content: center;
   gap: 20px;
 }
-main .lightBoxArea .lightBox .lightBoxContent .secImg img {
+main .lightBoxArea .lightBox .lightBoxContent .secImg img.littleImg {
   height: 100%;
+  cursor: pointer;
 }
 main .lightBoxArea .lightBox .lightBoxInfo {
   width: calc(30% - 40px);
@@ -168,6 +169,7 @@ main .lightBoxArea .lightBox .lightBoxInfo {
 }
 main .lightBoxArea .lightBox .lightBoxInfo p {
   margin-top: 10px;
+  word-break: break-all;
 }
 main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose {
   position: absolute;
@@ -210,12 +212,22 @@ main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
   color: #fff;
 }
 
+@media (max-width: 1440px) {
+  main .lightBoxArea .lightBox {
+    width: 90%;
+    min-width: 0;
+  }
+}
 @media (max-width: 1260px) {
   main .aboutContentArea {
     width: 90%;
   }
-  main .aboutContentArea .aboutAside {
-    margin-left: 0;
+  main .exhibitContentArea {
+    width: 90%;
+    justify-content: center;
+  }
+  main .exhibitContentArea .exhibitList {
+    grid-template-columns: 1fr 1fr;
   }
 }
 @media (max-width: 1024px) {
@@ -228,6 +240,46 @@ main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
   main .aboutContentArea .aboutContent .contentArticle {
     font-size: 16px;
   }
+  main .exhibitContentArea .exhibitList {
+    justify-items: center;
+  }
+  main .exhibitContentArea .exhibitList .exhibititem {
+    width: 250px;
+  }
+  main .lightBoxArea .lightBox {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  main .lightBoxArea .lightBox .lightBoxContent {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    height: 50%;
+  }
+  main .lightBoxArea .lightBox .lightBoxContent .lightBoxImg {
+    height: auto;
+    width: 70%;
+  }
+  main .lightBoxArea .lightBox .lightBoxContent .lightBoxImg img {
+    max-height: 300px;
+  }
+  main .lightBoxArea .lightBox .lightBoxContent .secImg {
+    flex-direction: column;
+    width: 15%;
+    height: auto;
+  }
+  main .lightBoxArea .lightBox .lightBoxContent .secImg img.littleImg {
+    height: auto;
+  }
+  main .lightBoxArea .lightBox .lightBoxInfo {
+    width: calc(100% - 20px);
+    margin-left: 0;
+    line-height: 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    height: 50%;
+  }
   .Aside {
     width: 100px;
   }
@@ -236,6 +288,15 @@ main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
   }
   .Aside .asideList .asideItem {
     font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  main .exhibitContentArea .exhibitList {
+    grid-template-columns: 1fr;
+  }
+  main .exhibitContentArea .exhibitList .exhibititem {
+    width: 300px;
+    height: 300px;
   }
 }
 @media (max-width: 500px) {
@@ -251,6 +312,33 @@ main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
   main .aboutContentArea .aboutContent {
     width: 95%;
   }
+  main .exhibitContentArea {
+    flex-direction: column;
+    gap: 20px;
+  }
+  main .lightBoxArea .lightBox .lightBoxContent {
+    flex-direction: column;
+  }
+  main .lightBoxArea .lightBox .lightBoxContent .lightBoxImg {
+    width: auto;
+    height: 100%;
+  }
+  main .lightBoxArea .lightBox .lightBoxContent .lightBoxImg img {
+    max-height: 220px;
+  }
+  main .lightBoxArea .lightBox .lightBoxContent .secImg {
+    width: auto;
+    height: 20%;
+    flex-direction: row;
+  }
+  main .lightBoxArea .lightBox .lightBoxInfo {
+    font-size: 14px;
+    line-height: 15px;
+  }
+  main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
+    padding: 5px 15px;
+    font-size: 16px;
+  }
   .Aside {
     width: 80%;
     margin: auto;
@@ -260,5 +348,10 @@ main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
   }
   .Aside .asideList .asideItem {
     line-height: 20px;
+  }
+}
+@media (max-width: 375px) {
+  main .exhibitContentArea .exhibitList {
+    margin-left: 0;
   }
 }/*# sourceMappingURL=page.css.map */
