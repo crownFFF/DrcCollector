@@ -1,5 +1,5 @@
 import $ from 'jquery'
-
+// -------------------------------------
 
 let scale = 1;
 let isDragging = false
@@ -100,13 +100,18 @@ $('.lightBoxclose').on('click', (e) => {
 })
 
 const page = window.location.pathname.split('/')
-
+const $lightBoxInfo = $('.lightBoxInfo');
+const $lightBoxImg = $('.lightBoxImg img');
+const $secImg = $('.secImg');
+let newData = []
 if (page.includes('Stamp')) {
   $.ajax({
     url: 'https://drc-api.hopto.org/api/exhibits-stamp.php',
     type: 'POST',
     contentType: 'application/json',
   }).done((data) => {
+
+
     data.forEach(item => {
       const bigDiv = $('<div>', {
         class: 'exhibititem'
@@ -138,9 +143,7 @@ if (page.includes('Stamp')) {
         data: JSON.stringify({ id })
       }).done(function (data) {
         const item = data[0];
-        const $lightBoxInfo = $('.lightBoxInfo');
-        const $lightBoxImg = $('.lightBoxImg img');
-        const $secImg = $('.secImg');
+
         item.price = item.price ? item.price : ''
         item.unit = item.unit ? item.unit : ''
 
@@ -168,36 +171,51 @@ if (page.includes('Stamp')) {
           $lightBoxImg.removeAttr('style').attr('src', e.target.src);
         });
 
+        return loadCountryInfoStamp(item.country_id || '');
 
-        return loadCountryInfoStamp(item.country_id||'');
-
-        function loadCountryInfoStamp(country_id) {
-          return $.ajax({
-            url: 'https://drc-api.hopto.org/api/exhibits-country.php',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({ country_id })
-          }).done(function (data) {
-            $lightBoxInfo.find('.country_id').html(`國家:${data[0].c_name}`);
-          })
-        }
       }).fail(function () {
         alert("系統目前無法連接後台資料庫");
       });
       $('.lightBoxArea').css('display', 'block');
     });
 
+
+    data.filter((item) => {
+      newData.push(item.country_id)
+    })
+    newData = [...new Set(newData)]
+
+    $.ajax({
+      url: 'https://drc-api.hopto.org/api/exhibits-country.php',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ country_list: newData })
+    }).done(function (data) {
+      console.log(data)
+      data.forEach((item) => {
+        const label = $('<label>', {
+          text: item.c_name,
+          for: `checkbox_${item.id}`
+        });
+        const input = $('<input>', {
+          type: 'checkbox',
+          value: item.c_name,
+          id: `checkbox_${item.id}`
+        })
+        $('form .form_country').append(input, label)
+      })
+
+    })
+
   }).fail((data) => {
     alert("系統目前無法連接後台資料庫");
   })
-
 } else {
-
   $.ajax({
     url: 'https://drc-api.hopto.org/api/exhibits-item.php',
     type: 'POST',
     contentType: 'application/json',
-  }).done(function (data) {
+  }).done((data) => {
     const List = data.filter((item) => {
       return page.includes(item.typeEN)
     })
@@ -228,10 +246,6 @@ if (page.includes('Stamp')) {
 
     });
 
-    const $lightBoxInfo = $('.lightBoxInfo');
-    const $lightBoxImg = $('.lightBoxImg img');
-    const $secImg = $('.secImg');
-
     $('.exhibititem img').on('click', (e) => {
       const id = e.target.dataset.id;
       $('body').css('overflow', 'hidden')
@@ -249,53 +263,60 @@ if (page.includes('Stamp')) {
       });
 
       $('.lightBoxArea').css('display', 'block');
-    });
+    })
+    
 
-    function updateLightboxInfo(item, data) {
-      $lightBoxInfo.find('.theme').html(`主題:${item.theme}`);
-      $lightBoxInfo.find('.remark').html(`備註:<br>${item.remark || ''}`);
-      $lightBoxInfo.find('.time').html(`年份:${item.time || ''}`);
-      $lightBoxImg.attr('src', `https://drccollector.hopto.org/images/envelopes/${item.img}`);
-
-      if (data.length > 1) {
-        $secImg.css('display', 'flex').empty();
-        data.forEach((imgItem) => {
-          const newImg = $('<img>', {
-            src: `https://drccollector.hopto.org/images/envelopes/${imgItem.img}`,
-            alt: "",
-            "data-id": "",
-            draggable: "false",
-            class: "littleImg"
-          });
-          $secImg.append(newImg);
-        });
-      }
-
-      $('.littleImg').on('click', (e) => {
-        scale = 1;
-        $lightBoxImg.removeAttr('style').attr('src', e.target.src);
-      });
-    }
-
-    function loadCountryInfo(country_from, country_to) {
-      return $.ajax({
-        url: 'https://drc-api.hopto.org/api/exhibits-country.php',
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify({ country_from, country_to })
-      }).done(function (data) {
-        const from = data[0]?.c_name || '';
-        const to = data[1]?.c_name || '';
-        $lightBoxInfo.find('.country_from').html(`寄出國家:${from}`);
-        $lightBoxInfo.find('.country_to').html(`收件國家:${to}`);
-      })
-    }
-
-
-
-
-
-  }).fail(function () {
+  }).fail((data) => {
     alert("系統目前無法連接後台資料庫");
   });
+}
+
+
+function updateLightboxInfo(item, data) {
+  $lightBoxInfo.find('.theme').html(`主題:${item.theme}`);
+  $lightBoxInfo.find('.remark').html(`備註:<br>${item.remark || ''}`);
+  $lightBoxInfo.find('.time').html(`年份:${item.time || ''}`);
+  $lightBoxImg.attr('src', `https://drccollector.hopto.org/images/envelopes/${item.img}`);
+
+  if (data.length > 1) {
+    $secImg.css('display', 'flex').empty();
+    data.forEach((imgItem) => {
+      const newImg = $('<img>', {
+        src: `https://drccollector.hopto.org/images/envelopes/${imgItem.img}`,
+        alt: "",
+        "data-id": "",
+        draggable: "false",
+        class: "littleImg"
+      });
+      $secImg.append(newImg);
+    });
+  }
+
+  $('.littleImg').on('click', (e) => {
+    scale = 1;
+    $lightBoxImg.removeAttr('style').attr('src', e.target.src);
+  });
+}
+function loadCountryInfo(country_from, country_to) {
+  return $.ajax({
+    url: 'https://drc-api.hopto.org/api/exhibits-country.php',
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify({ country_from, country_to })
+  }).done(function (data) {
+    const from = data[0]?.c_name || '';
+    const to = data[1]?.c_name || '';
+    $lightBoxInfo.find('.country_from').html(`寄出國家:${from}`);
+    $lightBoxInfo.find('.country_to').html(`收件國家:${to}`);
+  })
+}
+function loadCountryInfoStamp(country_id) {
+  return $.ajax({
+    url: 'https://drc-api.hopto.org/api/exhibits-country.php',
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify({ country_id })
+  }).done(function (data) {
+    $lightBoxInfo.find('.country_id').html(`國家:${data[0].c_name}`);
+  })
 }
