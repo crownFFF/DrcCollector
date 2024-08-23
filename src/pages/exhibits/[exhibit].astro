@@ -43,13 +43,18 @@ const type = await response.json();
       <div class="exhibitList">
 
         <div class="searchArea">
-          <form action="">
-            <div class="form_country">
-              國家:
-
+          <form action="" id="formArea">
+            <div class="form_country">國家:
+              <select name="" id="country">
+                <option value="">---選擇國家---</option>
+              </select>
             </div>
-
-           
+            <div class="form_year">年份:
+              <select name="" id="year">
+                <option value="">---選擇年份---</option>
+              </select>
+            </div>
+           <button type="submit">查詢</button>
           </form>
         </div>
 

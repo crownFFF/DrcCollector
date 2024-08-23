@@ -78,7 +78,6 @@ main .exhibitContentArea .exhibitList {
 }
 main .exhibitContentArea .exhibitList .searchArea {
   grid-column: 1/4;
-  grid-row: 1/3;
 }
 main .exhibitContentArea .exhibitList .exhibititem {
   position: relative;
@@ -117,7 +116,7 @@ main .lightBoxArea {
   top: 0;
   left: 0;
   padding: 100px 0 0 0;
-  z-index: 1;
+  z-index: 100;
   display: none;
 }
 main .lightBoxArea .lightBox {
@@ -129,12 +128,13 @@ main .lightBoxArea .lightBox {
   position: relative;
   padding: 20px;
   display: flex;
+  top: -5%;
 }
 main .lightBoxArea .lightBox .lightBoxContent {
   width: 70%;
 }
 main .lightBoxArea .lightBox .lightBoxContent .lightBoxImg {
-  height: 80%;
+  height: 100%;
   display: grid;
   justify-items: center;
   align-items: center;
@@ -143,44 +143,60 @@ main .lightBoxArea .lightBox .lightBoxContent .lightBoxImg {
 }
 main .lightBoxArea .lightBox .lightBoxContent .lightBoxImg img {
   max-width: 100%;
-  max-height: 550px;
+  max-height: 100%;
   transition: transform 0.2s ease;
   position: absolute;
   cursor: grab;
   transform-origin: top left;
 }
-main .lightBoxArea .lightBox .lightBoxContent .secImg {
-  width: calc(100% - 40px);
-  height: calc(20% - 40px);
-  padding: 20px;
-  display: none;
-  justify-content: center;
-  gap: 20px;
-}
-main .lightBoxArea .lightBox .lightBoxContent .secImg img.littleImg {
-  height: 100%;
-  cursor: pointer;
-}
-main .lightBoxArea .lightBox .lightBoxInfo {
+main .lightBoxArea .lightBoxInfo {
   width: calc(30% - 40px);
   height: calc(100% - 20px);
-  background-color: rgba(97, 60, 38, 0.2745098039);
   margin-left: 20px;
   padding: 10px;
   line-height: 30px;
   font-size: 18px;
   position: relative;
 }
-main .lightBoxArea .lightBox .lightBoxInfo p {
+main .lightBoxArea .lightBoxInfo .infoContent {
+  background-color: rgba(97, 60, 38, 0.2745098039);
+  height: 60%;
+  overflow-y: scroll;
+}
+main .lightBoxArea .lightBoxInfo .infoContent::-webkit-scrollbar {
+  width: 10px;
+}
+main .lightBoxArea .lightBoxInfo .infoContent::-webkit-scrollbar-track {
+  background: none;
+}
+main .lightBoxArea .lightBoxInfo .infoContent::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgb(158, 143, 125);
+}
+main .lightBoxArea .lightBoxInfo .infoContent p {
   margin-top: 10px;
   word-break: break-all;
 }
-main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose {
+main .lightBoxArea .lightBoxInfo .secImg {
+  width: calc(100% - 40px);
+  height: calc(20% - 40px);
+  padding: 20px;
+  display: none;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+main .lightBoxArea .lightBoxInfo .secImg img.littleImg {
+  height: 80%;
+  cursor: pointer;
+}
+main .lightBoxArea .lightBoxInfo .lightBoxclose {
   position: absolute;
   bottom: 20px;
   right: 20px;
 }
-main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
+main .lightBoxArea .lightBoxInfo .lightBoxclose button {
   border: none;
   font-size: 20px;
   padding: 10px 25px;
@@ -195,7 +211,7 @@ main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
   width: 150px;
   background-color: #4d4d4d;
   padding: 10px;
-  top: 200px;
+  top: 100px;
   letter-spacing: 2px;
   margin-left: 50px;
 }
@@ -233,6 +249,9 @@ main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
   main .exhibitContentArea .exhibitList {
     grid-template-columns: 1fr 1fr;
   }
+  main .exhibitContentArea .exhibitList .searchArea {
+    grid-column: 1/3;
+  }
 }
 @media (max-width: 1024px) {
   main .aboutContentArea {
@@ -265,17 +284,6 @@ main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
     height: auto;
     width: 70%;
   }
-  main .lightBoxArea .lightBox .lightBoxContent .lightBoxImg img {
-    max-height: 300px;
-  }
-  main .lightBoxArea .lightBox .lightBoxContent .secImg {
-    flex-direction: column;
-    width: 15%;
-    height: auto;
-  }
-  main .lightBoxArea .lightBox .lightBoxContent .secImg img.littleImg {
-    height: auto;
-  }
   main .lightBoxArea .lightBox .lightBoxInfo {
     width: calc(100% - 20px);
     margin-left: 0;
@@ -283,6 +291,13 @@ main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
     font-size: 16px;
     margin-top: 10px;
     height: 50%;
+  }
+  main .lightBoxArea .lightBox .lightBoxInfo .secImg {
+    flex-direction: row;
+    height: auto;
+  }
+  main .lightBoxArea .lightBox .lightBoxInfo .secImg img.littleImg {
+    height: 60px;
   }
   .Aside {
     width: 100px;
@@ -301,6 +316,9 @@ main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
   main .exhibitContentArea .exhibitList .exhibititem {
     width: 300px;
     height: 300px;
+  }
+  main .exhibitContentArea .exhibitList .searchArea {
+    grid-column: 1/2;
   }
 }
 @media (max-width: 500px) {
@@ -326,14 +344,6 @@ main .lightBoxArea .lightBox .lightBoxInfo .lightBoxclose button {
   main .lightBoxArea .lightBox .lightBoxContent .lightBoxImg {
     width: auto;
     height: 100%;
-  }
-  main .lightBoxArea .lightBox .lightBoxContent .lightBoxImg img {
-    max-height: 220px;
-  }
-  main .lightBoxArea .lightBox .lightBoxContent .secImg {
-    width: auto;
-    height: 20%;
-    flex-direction: row;
   }
   main .lightBoxArea .lightBox .lightBoxInfo {
     font-size: 14px;
