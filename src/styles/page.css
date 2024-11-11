@@ -62,10 +62,82 @@ main .aboutContentArea .aboutContent .contentArticle {
   line-height: 150%;
   letter-spacing: 2px;
 }
-main .exhibitContentArea {
+main .articleContentArea {
   width: 1260px;
   margin: auto;
   padding: 50px 0 50px;
+  display: flex;
+}
+main .articleContentArea .article_Wordpress {
+  margin-left: 50px;
+  width: calc(100% - 150px);
+  font-size: 16px;
+}
+main .articleContentArea .article_Wordpress .articleItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: 0.5s all;
+}
+main .articleContentArea .article_Wordpress .articleItem:hover {
+  background: #dadada;
+}
+main .articleContentArea .article_Wordpress .articleItem::after {
+  content: "";
+  height: 2px;
+  background-color: #3d1500;
+  left: 0;
+  bottom: 5px;
+}
+main .articleContentArea .article_Wordpress .articleItem .articleDate {
+  font-size: 18px;
+  padding: 10px 0;
+  letter-spacing: 2px;
+  position: relative;
+  margin-left: 10px;
+}
+main .articleContentArea .article_Wordpress .articleItem .articleDate::after {
+  content: "";
+  height: 2px;
+  width: 100px;
+  position: absolute;
+  background-color: #411800;
+  left: 0;
+  bottom: 5px;
+}
+main .articleContentArea .article_Wordpress .articleItem .articleTitle {
+  padding: 10px 0;
+  letter-spacing: 2px;
+  margin-left: 10px;
+}
+main .articleContentArea .article_Wordpress .articleItem .articleContent {
+  padding: 10px 0;
+  margin-left: 10px;
+}
+main .articleContentArea .article_Wordpress .articleItem .articleLink {
+  text-align: right;
+  padding: 10px 0;
+  letter-spacing: 2px;
+  margin-right: 10px;
+}
+main .articleContentArea .article_Wordpress .articleItem .articleLink a {
+  color: #411800;
+  position: relative;
+}
+main .articleContentArea .article_Wordpress .articleItem .articleLink a:hover::after {
+  content: "";
+  height: 2px;
+  width: 0;
+  background-color: #4b2d00;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  animation: LinkScroll 0.5s ease-in-out forwards;
+}
+main .exhibitContentArea {
+  width: 1260px;
+  margin: auto;
+  padding: 50px 0 20px;
   display: flex;
 }
 main .exhibitContentArea .exhibitList {
@@ -78,6 +150,29 @@ main .exhibitContentArea .exhibitList {
 }
 main .exhibitContentArea .exhibitList .searchArea {
   grid-column: 1/4;
+}
+main .exhibitContentArea .exhibitList .searchArea .form_theme {
+  padding: 10px 0;
+}
+main .exhibitContentArea .exhibitList .searchArea .form_country {
+  padding: 10px 0;
+}
+main .exhibitContentArea .exhibitList .searchArea .form_year {
+  padding: 10px 0;
+}
+main .exhibitContentArea .exhibitList .searchArea button {
+  width: 80px;
+  height: 30px;
+  margin: 10px 10px;
+  border-radius: 0;
+  border: none;
+  background-color: #d3b27d;
+  transition: 0.5s all;
+  cursor: pointer;
+}
+main .exhibitContentArea .exhibitList .searchArea button:hover {
+  color: #ffffff;
+  background-color: #584b35;
 }
 main .exhibitContentArea .exhibitList .exhibititem {
   position: relative;
@@ -160,8 +255,9 @@ main .lightBoxArea .lightBoxInfo {
 }
 main .lightBoxArea .lightBoxInfo .infoContent {
   background-color: rgba(97, 60, 38, 0.2745098039);
-  height: 60%;
+  height: 70%;
   overflow-y: scroll;
+  padding: 10px;
 }
 main .lightBoxArea .lightBoxInfo .infoContent::-webkit-scrollbar {
   width: 10px;
@@ -188,7 +284,7 @@ main .lightBoxArea .lightBoxInfo .secImg {
   justify-content: flex-start;
 }
 main .lightBoxArea .lightBoxInfo .secImg img.littleImg {
-  height: 80%;
+  height: 55%;
   cursor: pointer;
 }
 main .lightBoxArea .lightBoxInfo .lightBoxclose {
@@ -204,6 +300,24 @@ main .lightBoxArea .lightBoxInfo .lightBoxclose button {
   color: #fff;
   cursor: pointer;
   letter-spacing: 5px;
+}
+main .loadingBtn {
+  padding: 10px;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+  border: none;
+  background: #4d4d4d;
+  color: #fff;
+  letter-spacing: 2px;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #4d4d44;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.5s;
+}
+main .loadingBtn:hover {
+  box-shadow: 0 0 0 2px #4d4d44;
 }
 
 .Aside {
@@ -232,6 +346,25 @@ main .lightBoxArea .lightBoxInfo .lightBoxclose button {
   color: #fff;
 }
 
+aside.top {
+  position: fixed;
+  right: 1%;
+  bottom: 1%;
+  padding: 20px;
+  background: #4d4d4d;
+  color: #fff;
+  z-index: 1;
+  display: none;
+}
+
+@keyframes LinkScroll {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 50px;
+  }
+}
 @media (max-width: 1440px) {
   main .lightBoxArea .lightBox {
     width: 90%;
@@ -251,6 +384,9 @@ main .lightBoxArea .lightBoxInfo .lightBoxclose button {
   }
   main .exhibitContentArea .exhibitList .searchArea {
     grid-column: 1/3;
+  }
+  main .articleContentArea {
+    width: 90%;
   }
 }
 @media (max-width: 1024px) {
@@ -337,6 +473,17 @@ main .lightBoxArea .lightBoxInfo .lightBoxclose button {
   main .exhibitContentArea {
     flex-direction: column;
     gap: 20px;
+  }
+  main .articleContentArea {
+    flex-direction: column;
+  }
+  main .articleContentArea .article_Wordpress {
+    width: auto;
+    padding-top: 10px;
+    margin: auto;
+  }
+  main .articleContentArea .article_Wordpress .articleItem {
+    line-height: 150%;
   }
   main .lightBoxArea .lightBox .lightBoxContent {
     flex-direction: column;

@@ -20,7 +20,6 @@ $(function () {
   }
 })
 
-
 // Swiper
 const swiper = new Swiper('.swiper-container', {
   slidesPerView: 3,
@@ -57,16 +56,6 @@ $('.closeBox').on('click', () => {
   return false
 })
 
-$('.searchIcon').on('click', () => {
-  $('.search').css('height', '40px')
-  $('.searchInput').trigger("focus")
-  return false
-})
-
-$('.searchInput').on('blur', () => {
-  $('.search').css('height', '0')
-  return false
-})
 
 // ScrollReveal
 document.addEventListener('DOMContentLoaded', function () {

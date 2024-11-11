@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BannerLayout from "../../layouts/BannerLayout.astro";
+import Aside from "../../components/aside.astro";
+const BannerImg = "/images/stamp013-1.png";
+
+const { article } = Astro.params;
+const response = await fetch("http://35.233.213.136//wp-json/wp/v2/posts");
+const posts = await response.json();
+
+function removeHtmlTags(htmlString) {
+  let text = htmlString.replace(/<\/?[^>]+(>|$)/g, "");
+  text = text.replace(/&hellip;/g, "...");
+  text = text.replace(/\[\.\.\.\]/g, "...");
+  return text.trim();
+}
+function formatDate(dateString) {
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  // @ts-ignore
+  return new Intl.DateTimeFormat("zh-TW", options).format(new Date(dateString));
+}
+---
+
+<BaseLayout pagetitle="文章與郵集" bodyClass="articlePage">
+  <BannerLayout pagetitle="文章與郵集" BannerImg={BannerImg} pageSubTitle="文章-閱讀">
+    <section class="articleContentArea">
+      <Aside asideTitle="文章與郵集">
+        <li class="asideItem"><a href="/articles/article">文章-閱讀</a></li>
+      </Aside>
+      <div class="article_Wordpress">
+        <ul>
+          {
+            posts.map((post) => (
+              <li class="articleItem">
+                <h1 class="articleDate">{formatDate(post.date)}</h1>
+                <h2 class="articleTitle">{post.title.rendered}</h2>
+                <p class="articleContent">
+                  {removeHtmlTags(post.excerpt.rendered)}
+                </p>
+                <div class="articleLink">
+                  <a href={post.link} target="_blank">
+                    閱讀更多
+                  </a>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </BannerLayout>
+  <script src="/src/scripts/wordpress.js"></script>
+</BaseLayout>

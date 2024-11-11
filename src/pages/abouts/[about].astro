@@ -6,15 +6,25 @@ import Aside from "../../components/aside.astro";
 const BannerImg = "/images/stamp013-1.png";
 
 export function getStaticPaths() {
-  return [
-    {params: {about: 'web'}},
-    {params: {about: 'story'}}
-  ];
+  return [{ params: { about: "web" } }, { params: { about: "story" } }];
 }
 const { about } = Astro.params;
+const page = Astro.request.url;
+let pageSubTitle = "";
+if (page.includes("story")) {
+  pageSubTitle = "建立-故事";
+}
+if (page.includes("web")) {
+  pageSubTitle = "關於網站";
+}
 ---
+
 <BaseLayout pagetitle="關於網站" bodyClass="aboutPage">
-  <BannerLayout pagetitle="關於我們" BannerImg={BannerImg}>
+  <BannerLayout
+    pagetitle="關於我們"
+    BannerImg={BannerImg}
+    pageSubTitle={pageSubTitle}
+  >
     <section class="aboutContentArea">
       <Aside asideTitle="關於我們">
         <li class="asideItem"><a href="/abouts/story">建立-故事</a></li>

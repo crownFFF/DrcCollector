@@ -64,10 +64,84 @@ main {
       }
     }
   }
-  .exhibitContentArea {
+  .articleContentArea{
     width: 1260px;
     margin: auto;
     padding: 50px 0 50px;
+    display: flex;
+    .article_Wordpress{
+      margin-left: 50px;
+      width: calc(100% - 150px);
+      font-size: 16px;
+      .articleItem{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transition: .5s all;
+        &:hover{
+          background: #dadada;
+        }
+        &::after{
+          content: "";
+          height: 2px;
+          background-color: #3d1500;
+          left: 0;
+          bottom: 5px;
+        }
+        .articleDate{
+          font-size: 18px;
+          padding: 10px 0;
+          letter-spacing: 2px;
+          position: relative;
+          margin-left: 10px;
+          &::after{
+            content: "";
+            height: 2px;
+            width: 100px;
+            position: absolute;
+            background-color: #411800;
+            left: 0;
+            bottom: 5px;
+          }
+        }
+        .articleTitle{
+          padding: 10px 0;
+          letter-spacing: 2px;
+          margin-left: 10px;
+        }
+        .articleContent{
+          padding: 10px 0;
+          margin-left: 10px;
+        }
+        .articleLink{
+          text-align: right;
+          padding: 10px 0;
+          letter-spacing: 2px;
+          margin-right: 10px;
+          a{
+            color: #411800;
+            position: relative;
+            &:hover{
+                &::after{
+                  content: "";
+                  height: 2px;
+                  width: 0;
+                  background-color: #4b2d00;
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
+                  animation: LinkScroll 0.5s ease-in-out forwards;
+                }
+            }
+          }
+        }
+      }
+    }
+  }
+  .exhibitContentArea {
+    width: 1260px;
+    margin: auto;
+    padding: 50px 0 20px;
     display: flex;
     .exhibitList {
       margin-left: 50px;
@@ -78,6 +152,30 @@ main {
       grid-template-columns: 1fr 1fr 1fr;
       .searchArea {
         grid-column: 1 / 4;
+        .form_theme{
+          padding: 10px 0;
+          
+        }
+        .form_country{
+          padding: 10px 0;
+        }
+        .form_year{
+          padding: 10px 0;
+        }
+        button{
+          width: 80px;
+          height: 30px;
+          margin: 10px 10px;
+          border-radius: 0;
+          border: none;
+          background-color: #d3b27d;
+          transition: .5s all;
+          cursor: pointer;
+          &:hover{
+            color: #ffffff;
+            background-color: #584b35;
+          }
+        }
       }
       .exhibititem {
         position: relative;
@@ -160,8 +258,9 @@ main {
       position: relative;
       .infoContent {
         background-color: #613c2646;
-        height: 60%;
+        height: 70%;
         overflow-y: scroll;
+        padding: 10px;
         &::-webkit-scrollbar {
           width: 10px;
         }
@@ -188,7 +287,7 @@ main {
         flex-wrap: wrap;
         justify-content: flex-start;
         img.littleImg {
-          height: 80%;
+          height: 55%;
           cursor: pointer;
         }
       }
@@ -206,6 +305,24 @@ main {
           letter-spacing: 5px;
         }
       }
+    }
+  }
+  .loadingBtn{
+    padding: 10px;
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    border: none;
+    background: #4d4d4d;
+    color: #fff;
+    letter-spacing: 2px;
+    box-shadow: 0 0 0 2px #fff,0 0 0 4px #4d4d44;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all .5s;
+    &:hover{
+      box-shadow:0 0 0 2px #4d4d44; 
     }
   }
 }
@@ -238,6 +355,25 @@ main {
   }
 }
 
+aside.top{
+  position: fixed;
+  right: 1%;
+  bottom: 1%;
+  padding: 20px;
+  background: #4d4d4d;
+  color: #fff;
+  z-index: 1;
+  display: none;
+}
+
+@keyframes LinkScroll {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 50px;
+  }
+}
 @media (max-width: 1440px) {
   main {
     .lightBoxArea {
@@ -262,6 +398,9 @@ main {
           grid-column: 1 / 3;
         }
       }
+    }
+    .articleContentArea{
+      width: 90%;
     }
   }
 }
@@ -367,6 +506,17 @@ main {
     .exhibitContentArea {
       flex-direction: column;
       gap: 20px;
+    }
+    .articleContentArea{
+      flex-direction: column;
+       .article_Wordpress{
+        width: auto;
+        padding-top: 10px;
+        margin: auto;
+        .articleItem{
+          line-height: 150%;
+        }
+       }
     }
     .lightBoxArea {
       .lightBox {

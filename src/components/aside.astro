@@ -7,6 +7,15 @@ const { asideTitle } = Astro.props;
     <ul class="asideList">
       <h3>{asideTitle}</h3>
       <slot/>
+      <li class="asideItem gotop">
+        <a href=`#`>回頂層</a>
+      </li>
     </ul>
+  </div>
+</aside>
+
+<aside class="top">
+  <div>
+    回頂層
   </div>
 </aside>

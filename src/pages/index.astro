@@ -1,22 +1,31 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Sever from "../components/sever.vue";
-import Article from "../components/article.vue";
 import Loading from "../components/loading.astro";
+
+const { article } = Astro.params;
+const response = await fetch("http://35.233.213.136//wp-json/wp/v2/posts");
+const posts = await response.json();
+
+function formatDate(dateString) {
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  // @ts-ignore
+  return new Intl.DateTimeFormat("zh-TW", options).format(new Date(dateString));
+}
 
 ---
 
 <BaseLayout pagetitle="首頁" bodyClass="indexPage">
-			<!-- loading動畫 -->
-			<Loading/>
+	<!-- loading動畫 -->
+	<Loading />
 	<main>
 		<section class="bannerArea">
 			<div class="bannerBG">
-				<img
-					src="/images/stamp001-1.jpg"
-					alt=""
-					draggable="false"
-				/>
+				<img src="/images/stamp001-1.jpg" alt="" draggable="false" />
 			</div>
 
 			<div class="bannerTex" data-rs>
@@ -51,11 +60,7 @@ import Loading from "../components/loading.astro";
 				</h4>
 			</div>
 			<div class="introduceImg">
-				<img
-					src="/images/stamp013-1.png"
-					alt=""
-					draggable="false"
-				/>
+				<img src="/images/stamp013-1.png" alt="" draggable="false" />
 			</div>
 		</section>
 
@@ -80,7 +85,7 @@ import Loading from "../components/loading.astro";
 							張有義
 						</span>
 					</h4>
-					<a href="/aboutWeb" class="aboutMore">了解更多</a>
+					<a href="/abouts/story" class="aboutMore">了解更多</a>
 				</div>
 				<div class="aboutImg">
 					<img src="/images/stamp001-2.jpg" alt="" />
@@ -131,12 +136,19 @@ import Loading from "../components/loading.astro";
 
 				<div class="articleInfo">
 					<ul class="articleList">
-						<Article />
+						{
+							posts.map((post) => (
+								<li class="articleBox">
+									<div class="articleDate">{formatDate(post.date)}</div>
+									<h3 class="articleTex">
+										<a href={post.link} target="_blank">{post.title.rendered}</a>
+									</h3>
+								</li>
+							))
+						}
 					</ul>
-					<a href="/articles/article" class="articleMore">了解更多</a>
 				</div>
 			</div>
 		</section>
-		
 	</main>
 </BaseLayout>

@@ -4,7 +4,7 @@
   const list = ref(
     [{
       id: 1,
-      img: '/images/stamp001-1.jpg',
+      img: 'https://admin.drc-collector.com/images/envelopes/000113.jpg',
       title: '首日封',
       enTitle: 'stamp',
       article: '郵封的 歷史：從手工製作到現代生產',
@@ -13,7 +13,7 @@
     },
     {
       id: 2,
-      img: '/images/stamp001-1.jpg',
+      img: 'https://admin.drc-collector.com/images/envelopes/000029.jpg',
       title: '實寄封',
       enTitle: 'stamp',
       article: '郵封的 歷史：從手工製作到現代生產',
@@ -21,7 +21,7 @@
     },
     {
       id: 3,
-      img: '/images/stamp001-1.jpg',
+      img: 'https://admin.drc-collector.com/images/envelopes/000051.jpg',
       title: '其他郵封',
       enTitle: 'stamp',
       article: '郵封的 歷史：從手工製作到現代生產',
@@ -37,7 +37,7 @@
     },
     {
       id: 5,
-      img: '/images/stamp001-1.jpg',
+      img: 'https://admin.drc-collector.com/images/envelopes/000057_2.jpg',
       title: '明信片',
       enTitle: 'stamp',
       article: '郵封的 歷史：從手工製作到現代生產',
@@ -45,7 +45,7 @@
     },
     {
       id: 6,
-      img: '/images/stamp001-1.jpg',
+      img: 'https://admin.drc-collector.com/images/envelopes/000209_1.jpg',
       title: '郵簡',
       enTitle: 'stamp',
       article: '郵封的 歷史：從手工製作到現代生產',

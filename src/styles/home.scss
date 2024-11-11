@@ -77,13 +77,22 @@ header {
   width: 100%;
   display: flex;
   z-index: 100;
-
   .logo {
-    width: auto;
+    display: flex;
+    width: 150px;
+    align-content: center;
+    flex-wrap: wrap;
     text-align: center;
     font-size: 48px;
     font-weight: bold;
     padding-left: 50px;
+    a {
+      display: block;
+      width: 150px;
+      height: 100%;
+      position: absolute;
+      z-index: 1;
+    }
   }
 
   .navigation__gap {
@@ -141,32 +150,6 @@ header {
             }
           }
         }
-      }
-    }
-    .search {
-      display: flex;
-      height: 0;
-      transition: 0.5s all ease-in-out;
-      background: #665041;
-
-      .searchInput {
-        width: 90%;
-        border: none;
-        background: #836653;
-        color: #fff;
-        padding: 10px;
-        font-size: 18px;
-        &:focus {
-          outline: none;
-        }
-      }
-      .searchSubmit {
-        width: 10%;
-        border-radius: 0;
-        border: none;
-        font-size: 18px;
-        background: #665041;
-        color: #fff;
       }
     }
   }
@@ -395,7 +378,7 @@ main {
             position: absolute;
             bottom: 50px;
             left: 10px;
-            color: #fff;
+            color: #ffffff;
             font-size: 36px;
             text-transform: uppercase;
             transition: 0.6s cubic-bezier(0.45, 0, 0.55, 1);
@@ -612,9 +595,26 @@ footer {
     }
 
     .footerRight {
-      background-color: #fff;
-      width: 300px;
-      height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .footerLogo {
+        width: 250px;
+        height: 150px;
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        a {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          z-index: 1;
+        }
+      }
+      img {
+        width: 150px;
+      }
     }
   }
 
@@ -734,6 +734,7 @@ footer {
 
 @media (max-width: 1200px) {
   header {
+    padding-top: 15px;
     .navigation {
       display: none;
     }
@@ -854,30 +855,6 @@ footer {
                 }
               }
             }
-          }
-        }
-        .menuSearch {
-          display: flex;
-          transition: 0.5s all ease-in-out;
-          justify-content: center;
-          .menuSearchInput {
-            width: 60%;
-            border: none;
-            background: #b4b4b4;
-            color: #fff;
-            height: 20px;
-            padding: 10px;
-            &:focus {
-              outline: none;
-            }
-          }
-          button {
-            width: 10%;
-            border-radius: 0;
-            border: none;
-            font-size: 18px;
-            background: #969595;
-            color: #fff;
           }
         }
       }
@@ -1109,19 +1086,6 @@ footer {
       }
     }
   }
-
-  header {
-    .mobilemenu {
-      .menucontent {
-        .menuSearch {
-          font-size: 14px;
-          button {
-            font-size: 14px;
-          }
-        }
-      }
-    }
-  }
   main {
     .introduceArea {
       padding: 50px 0 50px 0;
@@ -1237,8 +1201,10 @@ footer {
       }
 
       .footerRight {
-        width: 150px;
-        height: 100px;
+        .footerLogo {
+          width: 150px;
+          height: 100px;
+        }
       }
     }
   }

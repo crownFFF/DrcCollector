@@ -1,5 +1,5 @@
 ---
-const { pagetitle,BannerImg } = Astro.props
+const { pagetitle,pageSubTitle,BannerImg } = Astro.props
 ---
 <main>
   <section class="innerBannerArea">
@@ -10,7 +10,7 @@ const { pagetitle,BannerImg } = Astro.props
       <h3>{pagetitle}</h3>
     </div>
     <div class="BannerSubTitle">
-      <h3><a href="/">首頁</a> - {pagetitle}</h3>
+      <h3><a href="/">首頁</a> - {pagetitle} - {pageSubTitle}</h3>
     </div>
   </section>
 

@@ -1,9 +1,8 @@
 ---
-const response = await fetch(
-  "https://drc-api.hopto.org/api/exhibits-list.php",
-);
+const response = await fetch("https://drc-collector.com/api/exhibits-list.php");
 const type = await response.json();
 ---
+
 <footer>
   <div class="footerContent">
     <div class="footerLeft">
@@ -19,41 +18,47 @@ const type = await response.json();
           <h3 class="itemTitle">文章與郵集</h3>
           <div class="itemlist">
             <a href="/articles/article">文章-閱讀</a>
-            <a href="/articles/introduction">郵集-介紹</a>
-            <a href="/articles/story">郵集-故事</a>
-            <a href="/articles/exhibition">郵集-展示</a>
           </div>
         </li>
         <li class="footerItem">
           <h3 class="itemTitle">展品介紹</h3>
           <div class="itemlist">
-            {type.map((item)=>{
-              return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>
-             })}
+            {
+              type.map((item) => {
+                return <a href={`/exhibits/${item.typeEN}`}>{item.type}</a>;
+              })
+            }
+            <a href=`/exhibits/Stamp`>郵票</a>
           </div>
         </li>
         <li class="footerItem">
           <h3 class="itemTitle">線上商店</h3>
           <div class="itemlist">
-            <a href="">Shopee</a>
-            <a href="">Ebay</a>
+            <a href="https://shopee.tw/mtvuru0l2o?categoryId=100639&amp;entryPoint=ShopByPDP&amp;itemId=28654252385&amp;upstream=search&amp;is_from_login=true" target="_blank">Shopee</a>
+            <a href="https://www.ebay.com/sch/i.html?item=395604408212&amp;rt=nc&amp;_trksid=p4429486.m3561.l161211&amp;_ssn=fonpe45" target="_blank">Ebay</a>
             <a href="">Yahoo</a>
           </div>
         </li>
         <li class="footerItem">
           <h3 class="itemTitle">聯絡我們</h3>
           <div class="itemlist">
-            <a href="">E-mail</a>
-            <a href="">線上留言</a>
+            <a href="mailto:fongmin057@gmail.com">E-mail</a>
+            <a href="https://lin.ee/yvbKc0T" target="_blank">LINE</a>
           </div>
         </li>
       </ul>
     </div>
-    <div class="footerRight">DRC</div>
+    <div class="footerRight">
+      <div class="footerLogo">
+        <a href="/"></a>
+        <object data="/images/logo_final.svg" type="image/svg+xml"></object>
+      </div>
+      <img
+        src="https://qr-official.line.me/gs/M_672dvjsp_GW.png?oat_content=qr"
+      />
+    </div>
   </div>
   <div class="footerBottom">
-    <div class="copyright">
-      Copyright © DRC收藏家. All Rights Reserved.
-    </div>
+    <div class="copyright">Copyright © DRC收藏家. All Rights Reserved.</div>
   </div>
 </footer>
